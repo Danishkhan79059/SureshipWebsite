@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function page() {
   return (
     <>
-      <div className="min-h-screen bg-gray-100 p-4 md:p-8 text-sm ">
+      <div className="min-h-screen bg-white p-4 md:p-8 text-sm ">
         <div className="max-w-7xl mx-auto pt-20">
           <h1 className="text-2xl font-semibold mb-6 text-blue-900">
             Shipping Rate Calculator
