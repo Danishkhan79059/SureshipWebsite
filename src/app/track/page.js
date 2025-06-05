@@ -2,6 +2,56 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { MdCopyAll } from "react-icons/md";
+
+const benefits = [
+  {
+    title: "Lowest Shipping Cost",
+    desc: "Start shipping eCommerce orders at 21/500gm",
+    icon: "📦",
+  },
+  {
+    title: "Multiple Courier Services",
+    desc: "Increase distribution reach with 27+ courier options",
+    icon: "➕📦",
+  },
+  {
+    title: "Widest Pin Code Network",
+    desc: "Deliver products across 29000+ pin codes",
+    icon: "📍",
+  },
+  {
+    title: "Swift Shipping",
+    desc: "Best first-mile/last-mile experience with quickest pickup & delivery",
+    icon: "🚚",
+  },
+  {
+    title: "30% Less RTO",
+    desc: "Reduce RTO losses and scale your eCommerce profits",
+    icon: "📦📉",
+  },
+  {
+    title: "One-day COD Remittance",
+    desc: "Early COD payments for uninterrupted cash flow",
+    icon: "💰⏱️",
+  },
+  {
+    title: "Enhanced Post-shipment Experience",
+    desc: "Get automated shipment updates in your inbox",
+    icon: "📱📩",
+  },
+  {
+    title: "Branded Tracking Page",
+    desc: "Drive post-purchase engagement with customers",
+    icon: "🧾",
+  },
+  {
+    title: "24x7 Support",
+    desc: "Enjoy non-stop eCommerce shipping services with prompt support",
+    icon: "🕒",
+  },
+];
+
 export default function Page() {
   const router = useRouter();
   const tabs = [
@@ -11,11 +61,20 @@ export default function Page() {
     { label: "LRN", placeholder: "Enter your LRN number" },
   ];
 
-  const [selectedTab, setSelectedTab] = useState(tabs[1]); // Default AWB tab
-  const [inputValue, setInputValue] = useState("38418510009483"); //38418510009505
+  const [selectedTab, setSelectedTab] = useState(tabs[1]);
+  const [inputValue, setInputValue] = useState("38418510009505"); //38418510009483
   const [trackingResult, setTrackingResult] = useState(null);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // 🔄 loading state
+  const [loading, setLoading] = useState(false);
+
+  const [copiedAWB, setCopiedAWB] = useState(null);
+
+  const handleCopy = (awb) => {
+    navigator.clipboard.writeText(awb).then(() => {
+      setCopiedAWB(awb);
+      setTimeout(() => setCopiedAWB(null), 2000);
+    });
+  };
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString("en-IN", {
@@ -104,10 +163,10 @@ export default function Page() {
         </div>
       )}
 
-      <section className="min-h-96 bg-white text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between pt-60">
+      <section className="min-h-96 bg-white text-white  px-6 md:px-20 flex flex-col md:flex-row items-center justify-between pt-40">
         {/* Left Form Section */}
         <div className="md:w-1/2 w-full order-2">
-          <div className="bg-blue-50 text-black p-10 shadow-2xl rounded-md mx-auto space-y-8">
+          <div className="bg-blue-50 text-black p-20 shadow-2xl rounded-md mx-auto space-y-8">
             <h2 className="text-4xl md:text-3xl font-bold text-black mb-6">
               Track Your Order
             </h2>
@@ -151,11 +210,10 @@ export default function Page() {
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           </div>
         </div>
-
         {/* Right Image Section */}
-        <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
+        <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
           <Image
-            src="/image/e (55).jpg"
+            src="/image/e (58).jpg"
             alt="Delivery Guy"
             width={1600}
             height={1200}
@@ -164,111 +222,134 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 🚚 Tracking Result Section */}
-      <div className="bg-white min-h-56 py-10 px-4">
-        {trackingResult?.ShipmentData?.map((shipment, index) => {
-          console.log(shipment);
+      {/*  Tracking Result Section */}
+      <div className="bg-white py-10">
+        {trackingResult?.ShipmentData?.map((shipment, index) => (
+          <div
+            key={shipment.Shipment.AWB || index}
+            className="bg-white border border-gray-200 shadow-lg rounded-2xl max-w-5xl mx-auto mb-10 p-6 sm:p-8 space-y-8"
+          >
+            {/* Header */}
+            <div className="flex items-center space-x-3">
+              <span className="text-xl sm:text-2xl font-bold text-blue-700 flex items-center gap-2">
+                Order Tracker (AWB: {shipment.Shipment.AWB})
+                <button
+                  onClick={() => handleCopy(shipment.Shipment.AWB)}
+                  className="text-blue-600 hover:text-blue-800"
+                  title="Copy AWB number"
+                >
+                  <MdCopyAll className="text-lg sm:text-xl size-8" />
+                </button>
+              </span>
+            </div>
 
-          return (
-            <div
-              key={shipment.Shipment.AWB || index}
-              className="bg-white border border-gray-200 shadow-lg p-10 mx-auto max-w-full rounded-2xl space-y-10 mb-2 "
-            >
-              {/* Shipment Details */}
-              <div>
-                <h2 className="text-2xl font-bold mb-6 text-blue-700  pb-2">
-                  Shipment Details (AWB: {shipment.Shipment.AWB})
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-y-6 gap-x-8 text-sm text-gray-900 font-bold">
-                  {[
-                    { label: "AWB Number", value: shipment.Shipment.AWB },
-                    { label: "Status", value: shipment.Shipment.Status.Status },
-                    { label: "Origin", value: shipment.Shipment.Origin },
-                    {
-                      label: "Destination",
-                      value: shipment.Shipment.Destination,
-                    },
-                    {
-                      label: "Expected Delivery",
-                      value: formatDate(shipment.Shipment.ExpectedDeliveryDate),
-                    },
-                    { label: "Order Type", value: shipment.Shipment.OrderType },
-                  ].map((item, i) => (
-                    <div key={i}>
-                      <label className="text-gray-500 block mb-1">
-                        {item.label}
-                      </label>
-                      <div className="bg-gray-100 rounded-md px-3 py-2 text-gray-800 font-medium shadow-inner border border-gray-200">
-                        {item.value}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Copy confirmation message */}
+            {copiedAWB === shipment.Shipment.AWB && (
+              <div className="text-green-600 text-sm font-medium">
+                AWB number copied!
               </div>
+            )}
 
-              {/* Horizontal Tracking History */}
-              <div>
-                <h2 className="text-2xl font-bold mb-6 text-blue-700 border-b border-gray-200 pb-2">
-                  Tracking History
-                </h2>
-                <div className="overflow-x-auto">
-                  <div className="flex items-center space-x-6 min-w-max">
-                    {shipment.Shipment.Scans.map((scan, scanIndex, arr) => {
-                      console.log(
-                        "Instruction",
-                        scan["ScanDetail"]["Instructions"]
-                      );
-                      if (
-                        [
-                          "Added to Bag",
-                          "Bag Added To Trip",
-                          "Bag Received at Facility",
-                        ].includes(scan["ScanDetail"]["Instructions"])
-                      ) {
-                        return null;
-                      } else {
-                        return (
-                          <React.Fragment key={scanIndex}>
-                            <div className="flex flex-col items-center">
-                              <div
-                                className={`w-4 h-4 rounded-full z-10 ${
-                                  scanIndex === 0
-                                    ? "bg-green-500"
-                                    : "bg-blue-500"
-                                }`}
-                              ></div>
-
-                              <div className="mt-4 bg-gray-100 p-4 rounded-xl shadow-sm w-60">
-                                <p className="font-semibold text-gray-800">
-                                  {scan.ScanDetail.Scan}
-                                </p>
-                                <p className="text-sm text-gray-600">
-                                  {scan.ScanDetail.Instructions}
-                                </p>
-                                <p className="text-xs text-gray-500 mt-1">
-                                  Location: {scan.ScanDetail.ScannedLocation}
-                                </p>
-                                <p className="text-sm text-gray-500 mt-1">
-                                  {formatDate(scan.ScanDetail.ScanDateTime)}
-                                </p>
-                              </div>
-                            </div>
-                            {scanIndex < arr.length - 1 && (
-                              <div className="text-blue-600 text-5xl font-extrabold">
-                                &rarr;
-                              </div>
-                            )}
-                          </React.Fragment>
-                        );
-                      }
-                    })}
+            {/* Shipment Info Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm sm:text-base text-gray-900 font-medium">
+              {[
+                { label: "AWB Number", value: shipment.Shipment.AWB },
+                { label: "Status", value: shipment.Shipment.Status.Status },
+                { label: "Origin", value: shipment.Shipment.Origin },
+                { label: "Destination", value: shipment.Shipment.Destination },
+                {
+                  label: "Expected Delivery",
+                  value: formatDate(shipment.Shipment.ExpectedDeliveryDate),
+                },
+                { label: "Order Type", value: shipment.Shipment.OrderType },
+              ].map((item, i) => (
+                <div key={i}>
+                  <p className="text-gray-500 text-xs sm:text-sm mb-1">
+                    {item.label}
+                  </p>
+                  <div className="bg-gray-100 rounded-md px-3 py-2 text-gray-800 shadow-inner border border-gray-200">
+                    {item.value}
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Stepper Timeline */}
+            <div className="relative border-l-2 border-blue-500 pl-6 space-y-8">
+              {shipment.Shipment.Scans.map((scan, i) => {
+                if (
+                  [
+                    "Added to Bag",
+                    "Bag Added To Trip",
+                    "Bag Received at Facility",
+                    "Bag Removed",
+                    "Shipment Recieved at Origin Center",
+                    "Shipment Received at Facility",
+                  ].includes(scan.ScanDetail.Instructions)
+                )
+                  return null;
+
+                const isActive = i <= 3;
+
+                return (
+                  <div key={i} className="relative">
+                    <div
+                      className="absolute -left-[37px] top-1 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm shadow"
+                      style={{
+                        backgroundColor: isActive ? "#3B82F6" : "#E5E7EB",
+                        border: `2px solid ${isActive ? "#3B82F6" : "#D1D5DB"}`,
+                      }}
+                    >
+                      📅
+                    </div>
+
+                    <div className="ml-2">
+                      <p className="font-semibold text-gray-800 leading-tight">
+                        {scan.ScanDetail.Scan}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {scan.ScanDetail.Instructions}
+                      </p>
+                      {scan.ScanDetail.ScannedLocation && (
+                        <p className="text-xs text-gray-500">
+                          Location: {scan.ScanDetail.ScannedLocation}
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-500">
+                        {formatDate(scan.ScanDetail.ScanDateTime)}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <section className=" px-4 md:px-12 w-full mx-auto bg-white text-black">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4 text-black">
+          Business <span className="text-blue-600">Benefits</span>
+        </h2>
+        <p className="text-center text-gray-500 max-w-3xl mx-auto mb-12 text-2xl">
+          Say hi to a scaling business and wave goodbye to missed sales, limited
+          reach, delayed deliveries, and a poor remittance cycle.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-5 rounded-2xl bg-white shadow-md hover:shadow-lg transition"
+            >
+              <div className="text-4xl text-pink-600">{benefit.icon}</div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.desc}</p>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

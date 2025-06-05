@@ -87,7 +87,7 @@ export default function page() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/image/e (3).jpg" // Place the image in public folder and name it bg.jpg
+            src="/image/e (64).jpg" // Place the image in public folder and name it bg.jpg
             alt="Background"
             layout="fill"
             objectFit="cover"
@@ -101,14 +101,14 @@ export default function page() {
         {/* Content */}
         <div className="relative z-20 flex flex-col justify-center items-start px-6 md:px-20 py-24 md:py-32 text-white max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            <span className="text-white">Stock closer to your customers</span>
+            <span className="text-white">Distribute inventory across regions to reduce delivery time and costs</span>
           </h1>
 
           <p className="mt-4 text-sm md:text-base text-white">
-            Our distributed pan-India warehousing network helps you manage your
-            inventory better
+            Keep inventory near customers to reduce delivery time, increase
+            satisfaction, and optimize logistics operations effectively
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-500 text-black font-medium rounded hover:bg-gray-200 transition-all">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all">
             Get started
           </button>
         </div>
@@ -232,8 +232,8 @@ export default function page() {
             <div className="w-10 h-1 bg-red-500 mt-3 mb-6"></div>
 
             <p className="text-gray-700 mb-4 text-sm md:text-base leading-relaxed">
-              SureShip network of fulfilment centres (warehouses) are powered
-              by our proprietary software and optimally integrated with our
+              SureShip network of fulfilment centres (warehouses) are powered by
+              our proprietary software and optimally integrated with our
               shipping network giving you the flexibility to optimise your
               storage cost versus speed to delivery.
             </p>

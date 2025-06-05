@@ -35,7 +35,7 @@ const segments = [
   { icon: "\ud83c\udfe2", title: "Small & medium enterprises" },
   { icon: "\ud83c\udfe8", title: "Marketplaces" },
   { icon: "\ud83c\udfe6", title: "Banks & financial institutions" },
-  { icon: "\ud83d\udcde\ud83d\udcf2\ud83d\udcf7", title: "Social commerce" },
+  { icon: "\ud83d\udcde", title: "Social commerce" },
   { icon: "\ud83d\udc64\ud83d\udce6", title: "Personal Shipping" },
 ];
 
@@ -94,7 +94,7 @@ export default function page() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/image/1.jpg" // Place the image in public folder and name it bg.jpg
+            src="/image/e (60).jpg" // Place the image in public folder and name it bg.jpg
             alt="Background"
             layout="fill"
             objectFit="cover"
@@ -108,24 +108,22 @@ export default function page() {
         {/* Content */}
         <div className="relative z-20 flex flex-col justify-center items-start px-6 md:px-20 py-24 md:py-32 text-white max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            <span className="text-black">
+            <span className="text-white">
               India’s eCommerce runs on SureShip
             </span>
           </h1>
-          <p className="mt-4  md:text-5xl text-black font-bold text-3xl">
-            logistics
-          </p>
-          <p className="mt-4 text-sm md:text-base text-black">
+          <p className="mt-4  md:text-5xl font-bold text-3xl">logistics</p>
+          <p className="mt-4 text-sm md:text-base text-white">
             Trusted partner for small businesses, large marketplaces and anyone
             else looking to send parcels across the country efficiently
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-500 text-black font-medium rounded hover:bg-gray-200 transition-all">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white  rounded hover:bg-gray-200 transition-all font-bold">
             Sign Up as a Business →
           </button>
         </div>
       </main>
 
-      <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-20">
+      <div className="bg-white py-12 px-4 sm:px-6 lg:px-20">
         <div className="max-w-screen-xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
             <span className="font-bold">Drive efficiency</span> with scale to
@@ -154,7 +152,7 @@ export default function page() {
         </div>
       </div>
 
-      <section className="bg-[#0d0e11] text-white py-16 px-6 md:px-20">
+      <section className="bg-white text-black py-16 px-6 md:px-20">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">Segments</h2>
           <p className="text-lg text-gray-300 mb-10 relative inline-block">
@@ -162,11 +160,11 @@ export default function page() {
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-red-500" />
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-black">
             {segments.map(({ icon, title }, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-4 text-white hover:text-red-400 transition"
+                className="flex items-center space-x-4 text-black hover:text-red-400 transition"
               >
                 <div className="text-3xl">{icon}</div>
                 <div className="text-lg font-semibold">{title}</div>
@@ -176,7 +174,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="bg-[#f4f5f7] px-6 py-16 lg:px-20">
+      <section className="bg-white px-6 py-16 lg:px-20">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-light text-black">
             Grow your brand through our <br />
@@ -199,7 +197,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="bg-[#f5f7fa] px-4 py-16 md:px-20">
+      <section className="bg-white px-4 py-16 md:px-20">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-light text-black">
             Explore other <span className="font-bold">Services</span>

@@ -88,7 +88,7 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <div
+            {/* <div
               className="relative inline-block text-left"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
@@ -97,7 +97,7 @@ export default function Header() {
                 Solution
               </span>
 
-              {/* Dropdown menu */}
+           
               {Hovered && (
                 <div className="absolute left-0  w-44 bg-white rounded-md shadow-lg z-10">
                   <ul className="py-2 text-sm text-black">
@@ -146,7 +146,7 @@ export default function Header() {
                 Partner
               </span>
 
-              {/* Dropdown content */}
+            
               {isopen && (
                 <div className="absolute left-0  w-56 bg-white rounded-md shadow-lg z-10 ">
                   <ul className="py-2 text-sm text-black ">
@@ -177,7 +177,7 @@ export default function Header() {
                   </ul>
                 </div>
               )}
-            </div>
+            </div> */}
             <div
               className="relative inline-block text-left"
               onMouseEnter={() => sethovered(true)}
@@ -187,7 +187,6 @@ export default function Header() {
                 company
               </span>
 
-              {/* Dropdown content */}
               {hovered && (
                 <div className="absolute left-0  w-56 bg-white rounded-md shadow-lg z-10 ">
                   <ul className="py-2 text-sm text-black ">
@@ -207,14 +206,14 @@ export default function Header() {
                         Careers
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="/Pressrelease"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
                       >
                         Press release
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               )}
@@ -327,8 +326,7 @@ export default function Header() {
             )}
           </div>
 
-          {/* Other menu links */}
-          <div>
+          {/* <div>
             <button
               onClick={() => setisServicesOpen(!isservicesOpen)}
               className="w-full flex items-center justify-between text-gray-600 font-medium"
@@ -352,7 +350,7 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* Dropdown menu */}
+         
             {isservicesOpen && (
               <ul className="mt-2 space-y-1 pl-6 text-gray-700">
                 <li>
@@ -403,7 +401,7 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* Dropdown menu */}
+         
             {isOpen && (
               <ul className="mt-2 space-y-1 pl-6 text-gray-700">
                 <li>
@@ -423,7 +421,7 @@ export default function Header() {
                 </li>
               </ul>
             )}
-          </div>
+          </div> */}
           <div>
             <button
               onClick={() => setOpen(!Open)}
@@ -448,7 +446,6 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* Dropdown menu */}
             {Open && (
               <ul className="mt-2 space-y-1 pl-6 text-gray-700">
                 <li>
@@ -467,14 +464,14 @@ export default function Header() {
                     Careers
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     href="/Pressrelease"
                     className="block px-2 py-1 hover:text-blue-600"
                   >
                     Press release
                   </a>
-                </li>
+                </li> */}
               </ul>
             )}
           </div>

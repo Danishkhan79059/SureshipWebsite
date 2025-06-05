@@ -61,7 +61,7 @@ export default function page() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/image/e (18).jpg" // Place the image in public folder and name it bg.jpg
+            src="/image/e (63).jpg" // Place the image in public folder and name it bg.jpg
             alt="Background"
             layout="fill"
             objectFit="cover"
@@ -82,7 +82,7 @@ export default function page() {
             Send bulk shipments across India via our Part Truck Load (PTL)
             network
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-500 text-black font-medium rounded hover:bg-gray-200 transition-all">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all">
             Sign up as business
           </button>
         </div>

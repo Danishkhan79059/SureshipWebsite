@@ -82,7 +82,7 @@ export default function page() {
           <p className="mt-4 text-sm md:text-base text-white">
             Experience customised, multi-modal solutions for global shipping
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-500 text-black font-medium rounded hover:bg-gray-200 transition-all">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all">
             Express parcel
           </button>
         </div>
@@ -260,7 +260,7 @@ export default function page() {
           ))}
         </div>
       </section>
-       <section className="bg-[#0c0d11] py-16 px-4 text-center text-white">
+      <section className="bg-[#0c0d11] py-16 px-4 text-center text-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">
             Get started with SureShip Cross-border Services
