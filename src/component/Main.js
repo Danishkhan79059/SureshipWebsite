@@ -117,7 +117,7 @@ export default function Main() {
   return (
     <>
       <div className="min-h-screen  bg-white flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-20 py-10 pt-20 gap-10 ">
-        <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
+        <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
           <Image
             src="/image/e (70).jpg"
             alt="Delivery Guy"
@@ -138,38 +138,38 @@ export default function Main() {
 
             {/* Features Grid */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-white p-5 rounded-xl shadow flex items-start gap-4">
+              <div className="bg-white p-5 rounded-xl shadow flex items-center justify-center gap-4 text-center">
                 <div className="bg-blue-100 text-blue-600 rounded-full p-3">
                   <FaHeadphonesAlt className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <p className="text-black text-left font-medium text-md sm:text-xl">
+                <p className="text-black font-medium text-md sm:text-xl">
                   Support team that actually listens
                 </p>
               </div>
 
-              <div className="bg-white p-4 rounded-xl shadow flex items-start gap-4">
+              <div className="bg-white p-4 rounded-xl shadow flex items-center justify-center gap-4 text-center">
                 <div className="bg-blue-100 text-blue-600 rounded-full p-3">
                   <LuWeight className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <p className="text-black text-left font-medium text-md sm:text-xl">
+                <p className="text-black font-medium text-md sm:text-xl">
                   Lowest weight dispute %age
                 </p>
               </div>
 
-              <div className="bg-white p-5 rounded-xl shadow flex items-start gap-4">
+              <div className="bg-white p-5 rounded-xl shadow flex items-center justify-center gap-4 text-center">
                 <div className="bg-blue-100 text-blue-600 rounded-full p-3">
                   <TbCalendarUser className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <p className="text-black text-left font-medium text-md sm:text-xl">
+                <p className="text-black font-medium text-md sm:text-xl">
                   On time COD Remittance
                 </p>
               </div>
 
-              <div className="bg-white p-5 rounded-xl shadow flex items-start gap-4">
+              <div className="bg-white p-5 rounded-xl shadow flex items-center justify-center gap-4 text-center">
                 <div className="bg-blue-100 text-blue-600 rounded-full p-3">
                   <LiaShippingFastSolid className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <p className="text-black text-left font-medium text-md sm:text-xl">
+                <p className="text-black font-medium text-md sm:text-xl">
                   Start shipping from just ₹19
                 </p>
               </div>
@@ -548,17 +548,17 @@ export default function Main() {
           </div>
 
           {/* Right Section: Image */}
-          <div className="w-full lg:w-1/2 p-6 flex justify-center items-center">
-            <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
-              <Image
-                src="/image/e (71).jpg"
-                alt="Delivery Guy"
-                width={1600}
-                height={1200}
-                className="object-cover w-full max-w-4xl rounded-xl"
-              />
-            </div>
-          </div>
+          {/* <div className="w-full lg:w-1/2 p-6 flex justify-center items-center"> */}
+             <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
+          <Image
+            src="/image/e (71).jpg"
+            alt="Delivery Guy"
+            width={1600}
+            height={1200}
+            className="object-cover w-full max-w-4xl rounded-xl"
+          />
+        </div>
+          {/* </div> */}
         </div>
       </div>
 

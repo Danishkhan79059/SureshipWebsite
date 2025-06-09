@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <img
-              src="https://sureship.in/assets/img/Sureship.png"
+              src="/image/e (1).png"
               alt="SureShip Logo"
               className="h-10 object-contain"
             />

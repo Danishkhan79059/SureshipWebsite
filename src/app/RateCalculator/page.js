@@ -59,7 +59,8 @@ export default function Page() {
       isGSTinclusiv: false,
       isCOD: paymentMode === "COD",
       isRTO: selectedTab === "RTO",
-      codAmount: paymentMode === "COD" ? codAmount : 0,
+      // codAmount: paymentMode === "COD" ? codAmount : 0,
+      codAmount: paymentMode === "COD" ? Number(codAmount)  : 0,
     };
 
     setLoading(true); // Start loading
@@ -99,6 +100,7 @@ export default function Page() {
     height,
     paymentMode,
     selectedTab,
+    codAmount,
   ]);
 
   return (
