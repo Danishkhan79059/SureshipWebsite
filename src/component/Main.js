@@ -549,15 +549,15 @@ export default function Main() {
 
           {/* Right Section: Image */}
           {/* <div className="w-full lg:w-1/2 p-6 flex justify-center items-center"> */}
-             <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
-          <Image
-            src="/image/e (71).jpg"
-            alt="Delivery Guy"
-            width={1600}
-            height={1200}
-            className="object-cover w-full max-w-4xl rounded-xl"
-          />
-        </div>
+          <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
+            <Image
+              src="/image/e (75).jpg"
+              alt="Delivery Guy"
+              width={1600}
+              height={1200}
+              className="object-cover w-full max-w-4xl rounded-xl"
+            />
+          </div>
           {/* </div> */}
         </div>
       </div>
