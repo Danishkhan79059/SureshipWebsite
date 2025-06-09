@@ -44,7 +44,7 @@ export default function Header() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <span className="text-gray-700 hover:text-blue-600  flex items-center  px-4 py-2 hover:bg-white rounded-md text-sm font-semibold">
+              <span className="text-gray-700 hover:text-blue-600  flex items-center  px-4 py-2 hover:bg-white rounded-md text-sm font-semibold cursor-pointer">
                 Services
               </span>
 
@@ -88,102 +88,13 @@ export default function Header() {
                 </div>
               )}
             </div>
-            {/* <div
-              className="relative inline-block text-left"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold">
-                Solution
-              </span>
 
-           
-              {Hovered && (
-                <div className="absolute left-0  w-44 bg-white rounded-md shadow-lg z-10">
-                  <ul className="py-2 text-sm text-black">
-                    <li>
-                      <a
-                        href="/Solution/D2cbrand"
-                        className="block px-4 py-2 hover:bg-gray-100  dark:hover:text-black"
-                      >
-                        D2C
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/Solution/B2bbrand"
-                        className="block px-4 py-2 hover:bg-gray-100  dark:hover:text-black"
-                      >
-                        B2B
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/Solution/Personal"
-                        className="block px-4 py-2 hover:bg-gray-100  dark:hover:text-black"
-                      >
-                        Personal
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/Solution/Courier"
-                        className="block px-4 py-2 hover:bg-gray-100  dark:hover:text-black"
-                      >
-                        Courier
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-            <div
-              className="relative inline-block text-left"
-              onMouseEnter={() => setisopen(true)}
-              onMouseLeave={() => setisopen(false)}
-            >
-              <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold">
-                Partner
-              </span>
-
-            
-              {isopen && (
-                <div className="absolute left-0  w-56 bg-white rounded-md shadow-lg z-10 ">
-                  <ul className="py-2 text-sm text-black ">
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
-                      >
-                        Franchise Opportunities
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
-                      >
-                        Delivery Partner
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
-                      >
-                        Fleet Owner
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div> */}
             <div
               className="relative inline-block text-left"
               onMouseEnter={() => sethovered(true)}
               onMouseLeave={() => sethovered(false)}
             >
-              <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold">
+              <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold cursor-pointer">
                 company
               </span>
 
@@ -206,14 +117,6 @@ export default function Header() {
                         Careers
                       </a>
                     </li>
-                    {/* <li>
-                      <a
-                        href="/Pressrelease"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
-                      >
-                        Press release
-                      </a>
-                    </li> */}
                   </ul>
                 </div>
               )}
@@ -230,14 +133,14 @@ export default function Header() {
             >
               Support
             </Link>
-            <a
+            {/* <a
               href="https://demo.vizta.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-900 text-white px-5 py-2 rounded-md text-sm font-semibold flex items-center gap-2 transition-all hover:opacity-90"
             >
-              <FaSignInAlt /> Login/Register
-            </a>
+              <FaSignInAlt /> Login
+            </a> */}
 
             <Link
               href="/RateCalculator"
@@ -268,7 +171,7 @@ export default function Header() {
               onClick={() => setServicesOpen(!servicesOpen)}
               className="w-full flex items-center justify-between text-gray-600 font-medium"
             >
-              <span className="flex items-center gap-2">Services</span>
+              <span className="flex items-center gap-2 cursor-pointer">Services</span>
               <svg
                 className={`w-4 h-4 transform transition-transform duration-200 ${
                   servicesOpen ? "rotate-180" : "rotate-0"
@@ -326,102 +229,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* <div>
-            <button
-              onClick={() => setisServicesOpen(!isservicesOpen)}
-              className="w-full flex items-center justify-between text-gray-600 font-medium"
-            >
-              <span className="flex items-center gap-2">Solution</span>
-              <svg
-                className={`w-4 h-4 transform transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180" : "rotate-0"
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-         
-            {isservicesOpen && (
-              <ul className="mt-2 space-y-1 pl-6 text-gray-700">
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    D2C
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    B2B
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    Personal
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    Courier
-                  </a>
-                </li>
-              </ul>
-            )}
-          </div>
-
-          <div>
-            <button
-              onClick={() => setisOpen(!isOpen)}
-              className="w-full flex items-center justify-between text-gray-600 font-medium"
-            >
-              <span className="flex items-center gap-2">Partner</span>
-              <svg
-                className={`w-4 h-4 transform transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180" : "rotate-0"
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-         
-            {isOpen && (
-              <ul className="mt-2 space-y-1 pl-6 text-gray-700">
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    Franchise Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    Delivery Partner
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-2 py-1 hover:text-blue-600">
-                    Fleet Owner
-                  </a>
-                </li>
-              </ul>
-            )}
-          </div> */}
           <div>
             <button
               onClick={() => setOpen(!Open)}
@@ -464,14 +271,6 @@ export default function Header() {
                     Careers
                   </a>
                 </li>
-                {/* <li>
-                  <a
-                    href="/Pressrelease"
-                    className="block px-2 py-1 hover:text-blue-600"
-                  >
-                    Press release
-                  </a>
-                </li> */}
               </ul>
             )}
           </div>
@@ -487,14 +286,14 @@ export default function Header() {
           >
             Support
           </Link>
-          <a
+          {/* <a
             href="https://demo.vizta.in/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-900 w-1/2 text-white px-5 py-2 rounded-md text-sm font-semibold flex items-center gap-2 transition-all hover:opacity-90"
           >
-            <FaSignInAlt /> Login/Register
-          </a>
+            <FaSignInAlt /> Login
+          </a> */}
 
           <Link
             href="/RateCalculator"

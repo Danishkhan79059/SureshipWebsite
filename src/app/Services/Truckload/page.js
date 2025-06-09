@@ -82,29 +82,27 @@ export default function page() {
             Send bulk shipments across India via our Part Truck Load (PTL)
             network
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded transition-all cursor-pointer">
             Sign up as business
           </button>
         </div>
       </main>
 
-      <section className="bg-white w-full px-4 py-12">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8">
-          {/* Left block with image and stat */}
-          <div className="bg-[#fff8ec] rounded-[2rem] flex flex-col items-center justify-center p-6 lg:p-10 w-full lg:w-1/2 text-center relative">
-            <div className="mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-black">
-                6.1 Million+
-              </h2>
-              <p className="text-lg text-black font-medium mt-1">
-                Tonnes Freight <br /> Shipped Till Date
-              </p>
-            </div>
+  <section className="bg-gradient-to-b from-white to-blue-50 w-full px-4 py-16">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+          {/* Left block */}
+          <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-[2rem] flex flex-col items-center justify-center p-8 w-full lg:w-1/2 text-center shadow-lg">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">
+              6.1 Million+
+            </h2>
+            <p className="text-lg text-blue-800 font-medium mb-6">
+              Tonnes Freight <br /> Shipped Till Date
+            </p>
             <div className="w-full max-w-sm">
               <Image
                 src="/image/danish.png"
                 alt="Warehouse"
-                className="rounded-md object-cover"
+                className="rounded-xl object-cover"
                 width={700}
                 height={500}
                 priority
@@ -113,44 +111,38 @@ export default function page() {
           </div>
 
           {/* Right cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-1/2">
-            {[
-              {
-                text: (
-                  <>
-                    Start with as <br />
-                    low as <strong>₹6/Kg</strong>
-                  </>
-                ),
-              },
-              {
-                text: (
-                  <>
-                    <strong>18,700+</strong> <br />
-                    Pin codes covered
-                  </>
-                ),
-              },
-              {
-                text: (
-                  <>
-                    Dedicated <br />
-                    Customer <strong>Support</strong>
-                  </>
-                ),
-              },
-              {
-                text: (
-                  <>
-                    Scheduled <br />
-                    <strong>Appointment</strong> deliveries
-                  </>
-                ),
-              },
-            ].map((card, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-1/2">
+            {[{
+              text: (
+                <>
+                  Start with as <br /> low as <strong>₹6/Kg</strong>
+                </>
+              )
+            },
+            {
+              text: (
+                <>
+                  <strong>18,700+</strong> <br /> Pin codes covered
+                </>
+              )
+            },
+            {
+              text: (
+                <>
+                  Dedicated <br /> Customer <strong>Support</strong>
+                </>
+              )
+            },
+            {
+              text: (
+                <>
+                  Scheduled <br /> <strong>Appointment</strong> deliveries
+                </>
+              )
+            }].map((card, index) => (
               <div
                 key={index}
-                className="bg-[#fff5ef] rounded-[2rem] p-6 text-center text-black font-medium text-base md:text-lg flex items-center justify-center min-h-[150px]"
+                className="bg-gradient-to-br from-white to-blue-100 rounded-[2rem] p-6 text-center text-blue-900 font-semibold text-base md:text-lg flex items-center justify-center shadow hover:shadow-md transition"
               >
                 <div>{card.text}</div>
               </div>
@@ -159,16 +151,14 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full bg-white px-4 py-12">
-        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8">
+      {/* B2B Panel Section */}
+      <section className="w-full bg-white px-4 py-16">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Text Section */}
           <div className="text-center lg:text-left w-full lg:w-1/2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
-              Get{" "}
-              <span className="text-black font-extrabold">
-                eCommerce like experience
-              </span>{" "}
-              with SureShip dedicated panel for your B2B shipments
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 leading-snug">
+              Get <span className="text-blue-700 font-extrabold">eCommerce like experience</span>
+              <br /> with SureShip dedicated panel for your B2B shipments
             </h2>
           </div>
 
@@ -178,7 +168,7 @@ export default function page() {
               <Image
                 src="/image/e (16).jpg"
                 alt="Warehouse"
-                className="rounded-md object-cover"
+                className="rounded-xl object-cover"
                 width={700}
                 height={500}
                 priority
@@ -188,15 +178,16 @@ export default function page() {
         </div>
       </section>
 
-      <section className="bg-[#0d0d16] py-10 px-4">
+      {/* Feature Icons Section */}
+      <section className="bg-gradient-to-b from-blue-950 to-blue-900 py-12 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#2a2a38] text-white rounded-xl px-4 py-6 flex flex-col items-center shadow-md hover:scale-105 transition-transform duration-300"
+              className="bg-blue-800 text-white rounded-xl px-6 py-8 flex flex-col items-center shadow-lg hover:scale-105 transition-transform duration-300"
             >
-              {feature.icon}
-              <p className="text-sm font-medium">{feature.text}</p>
+              <div className="mb-3 text-3xl">{feature.icon}</div>
+              <p className="text-sm font-medium leading-snug">{feature.text}</p>
             </div>
           ))}
         </div>

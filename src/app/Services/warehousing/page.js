@@ -114,17 +114,17 @@ export default function page() {
         </div>
       </main>
 
-      <section className="bg-[#f5f7fa] px-4 py-16 md:px-20">
+ <section className="bg-gradient-to-b from-white to-blue-50 px-4 py-16 md:px-20">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-light text-black">
+          <h2 className="text-2xl md:text-3xl font-semibold text-blue-900">
             How our seamless order fulfilment works
           </h2>
-          <div className="w-14 h-1 bg-red-500 mx-auto mt-2"></div>
+          <div className="w-14 h-1 bg-blue-600 mx-auto mt-2"></div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-4 max-w-7xl mx-auto">
           {servicess.map((service, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={service.imageUrl}
@@ -132,20 +132,17 @@ export default function page() {
                   className="w-full h-52 object-cover rounded-lg"
                 />
               </div>
-
-              {/* Red squares */}
               {index === 0 && (
-                <div className="absolute top-[35%] -left-2 w-3 h-3 bg-red-500"></div>
+                <div className="absolute top-[35%] -left-2 w-3 h-3 bg-blue-600"></div>
               )}
               {index === 2 && (
-                <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-red-500"></div>
+                <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-blue-600"></div>
               )}
-
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold text-black">
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-blue-900">
                   {service.title}
                 </h3>
-                <p className="text-gray-700 text-sm mt-1">
+                <p className="text-gray-600 text-sm mt-1">
                   {service.description}
                 </p>
               </div>
@@ -154,23 +151,24 @@ export default function page() {
         </div>
       </section>
 
-      <section className="bg-[#0c0c11] text-white px-4 py-16 md:px-24">
+      {/* Section: SureShip Advantage */}
+      <section className="bg-blue-900 text-white px-4 py-16 md:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="md:flex gap-10 items-start mb-12">
             <div className="mb-10 md:mb-0">
               <h2 className="text-2xl md:text-3xl font-light">
-                The <span className="font-bold">SureShip</span>
+                The <span className="font-bold text-white">SureShip</span>
                 <br />
-                <span className="font-bold">Advantage</span>
+                <span className="font-bold text-white">Advantage</span>
               </h2>
-              <div className="w-10 h-1 bg-red-500 mt-2"></div>
+              <div className="w-10 h-1 bg-white mt-2"></div>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 flex-1">
               {advantages.map((item, index) => (
                 <div key={index} className="flex gap-4 items-start">
-                  <div>{item.icon}</div>
-                  <p className="text-sm md:text-base text-white font-medium leading-relaxed">
+                  <div className="text-blue-300">{item.icon}</div>
+                  <p className="text-sm md:text-base font-medium leading-relaxed">
                     {item.title}
                   </p>
                 </div>
@@ -180,17 +178,18 @@ export default function page() {
         </div>
       </section>
 
-      <section className="bg-[#f5f7fa] px-4 py-16 md:px-20">
+      {/* Section: Other Services */}
+      <section className="bg-gradient-to-b from-blue-50 to-white px-4 py-16 md:px-20">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-light text-black">
+          <h2 className="text-2xl md:text-3xl font-semibold text-blue-900">
             Explore other <span className="font-bold">Services</span>
           </h2>
-          <div className="w-14 h-1 bg-red-500 mx-auto mt-2"></div>
+          <div className="w-14 h-1 bg-blue-600 mx-auto mt-2"></div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition">
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={service.imageUrl}
@@ -198,20 +197,17 @@ export default function page() {
                   className="w-full h-52 object-cover rounded-lg"
                 />
               </div>
-
-              {/* Red squares */}
               {index === 0 && (
-                <div className="absolute top-[35%] -left-2 w-3 h-3 bg-red-500"></div>
+                <div className="absolute top-[35%] -left-2 w-3 h-3 bg-blue-600"></div>
               )}
               {index === 2 && (
-                <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-red-500"></div>
+                <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-blue-600"></div>
               )}
-
               <div className="mt-4">
-                <h3 className="text-lg font-semibold text-black">
+                <h3 className="text-lg font-semibold text-blue-900">
                   {service.title}
                 </h3>
-                <p className="text-gray-700 text-sm mt-1">
+                <p className="text-gray-600 text-sm mt-1">
                   {service.description}
                 </p>
               </div>
@@ -220,45 +216,36 @@ export default function page() {
         </div>
       </section>
 
+      {/* Section: Warehousing and Distribution */}
       <section className="bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 items-center gap-12">
-          {/* LEFT: Text content */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-light text-black">
-              <span className="font-bold">End-to-end warehousing</span> and{" "}
-              <br />
-              distribution logistics
+            <h2 className="text-2xl md:text-3xl font-light text-blue-900">
+              <span className="font-bold">End-to-end warehousing</span> and
+              <br /> distribution logistics
             </h2>
-            <div className="w-10 h-1 bg-red-500 mt-3 mb-6"></div>
+            <div className="w-10 h-1 bg-blue-600 mt-3 mb-6"></div>
 
             <p className="text-gray-700 mb-4 text-sm md:text-base leading-relaxed">
-              SureShip network of fulfilment centres (warehouses) are powered by
-              our proprietary software and optimally integrated with our
-              shipping network giving you the flexibility to optimise your
-              storage cost versus speed to delivery.
+              SureShip’s network of fulfilment centres (warehouses) are powered
+              by proprietary software and deeply integrated with our shipping
+              network, optimizing cost and delivery speed.
             </p>
 
             <p className="text-gray-700 mb-6 text-sm md:text-base leading-relaxed">
-              As a result you are now free to focus on growing your business
-              without having to worry about varying storage and manpower needs -
-              while sureship the experience you always wanted to, for your
-              consumers.
+              You can focus on growing your business, while SureShip handles
+              your dynamic storage and manpower needs with consistency and
+              efficiency.
             </p>
 
-            <button className="bg-black text-white px-6 py-2 text-sm rounded hover:bg-gray-800 transition">
+            <button className="bg-blue-900 text-white px-6 py-2 text-sm rounded hover:bg-blue-800 transition">
               Contact Us <span className="ml-2">→</span>
             </button>
           </div>
 
-          {/* RIGHT: Image with black box and red square */}
           <div className="relative w-full h-full flex justify-center items-center">
-            {/* Black box behind image */}
-            <div className="absolute top-8 right-8 w-full h-full bg-[#0c0c11] rounded-md z-0"></div>
-
-            {/* Red square */}
-            <div className="absolute top-4 right-4 w-6 h-6 bg-red-500 z-10"></div>
-
-            {/* Image */}
+            <div className="absolute top-8 right-8 w-full h-full bg-blue-100 rounded-md z-0"></div>
+            <div className="absolute top-4 right-4 w-6 h-6 bg-blue-600 z-10"></div>
             <div className="relative z-20 rounded-md overflow-hidden max-w-[90%]">
               <Image
                 src="/image/e (12).jpg"

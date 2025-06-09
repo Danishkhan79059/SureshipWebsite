@@ -59,106 +59,101 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="bg-white text-black py-12 px-4 md:px-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+      <section className="bg-white text-black py-16 px-4 md:px-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl font-bold mb-4">
-              <span className="text-black">About</span>{" "}
-              <span className="text-gray-700">Sureship</span>
-              <div className="w-16 h-1 bg-red-500 mt-1"></div>
+            <h2 className="text-4xl font-extrabold text-blue-900 mb-4">
+              About <span className="text-blue-600">Sureship</span>
             </h2>
-            <p className="text-gray-700 mb-4">
+            <div className="w-16 h-1 bg-blue-500 rounded-full mb-6"></div>
+            <p className="text-gray-700 mb-5 leading-relaxed">
               We are India’s largest fully integrated logistics provider. We aim
               to build the operating system for commerce, through a combination
-              of world-class infrastructure, logistics operations of the highest
-              quality and cutting-edge engineering and technology capabilities.
+              of world-class infrastructure, high-quality logistics operations,
+              and cutting-edge technology.
             </p>
-            <p className="text-gray-700">
-              Since its inception in 2011, our team has successfully fulfilled
-              over 2 billion orders across India. We have built a nation-wide
-              network with a presence in every state, servicing over 18,700+ pin
-              codes. 24 automated sort centres, 94 gateways, 2880 direct
-              delivery centres, and a team of over 57,000 people make it
-              possible for us to deliver 24 hours a day, 7 days a week, 365 days
-              a year.
+            <p className="text-gray-700 leading-relaxed">
+              Since 2011, we've fulfilled over 2 billion orders across India,
+              serving 18,700+ pin codes with 24 sort centres, 94 gateways, 2880
+              direct delivery centres, and a 57,000+ strong team, working round
+              the clock.
             </p>
           </div>
-          <div className="aspect-w-16 aspect-h-9">
-          <iframe
-            className="w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <iframe
+              className="w-full h-64 md:h-full"
+              src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+              title="About Sureship"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </section>
-      <section className="bg-white text-black py-12 px-4 md:px-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div>
-            <h2 className="text-3xl font-bold mb-4">
-              <span className="text-black">Our</span>{" "}
-              <span className="text-gray-700">Mission</span>
-              <div className="w-16 h-1 bg-red-500 mt-1"></div>
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Our mission is to enable customers to operate flexible, reliable
-              and resilient supply chains at the lowest costs. We provided
-              supply chain solutions to a diverse base of over 30K+ active
-              customers such as e-commerce marketplaces, direct-to-consumer
-              e-tailers and enterprises and SMEs across several verticals such
-              as FMCG, consumer durables, consumer electronics, lifestyle,
-              retail, automotive and manufacturing.
-            </p>
-            <p className="text-gray-700">
-              This is achieved through high-quality logistics infrastructure and
-              network engineering, a vast network of domestic and global
-              partners and significant investments in automation, all of which
-              are orchestrated by our self-developed logistics operating system
-              that drive network synergies within and across our services and
-              enhance our value proposition to customers.
-            </p>
-          </div>
-        
-        </div>
-      </section>
-      <div className="bg-white text-black py-12 px-4 md:px-16">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
-          <span className="border-b-4 border-red-600 pb-1">
-            Key Corporate locations
-          </span>{" "}
-          <span className="text-gray-600">across the India</span>
-        </h2>
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-8">
-            {locations.map((loc) => (
-              <div key={loc.city}>
-                <h3
-                  className={`text-lg font-semibold ${
-                    loc.highlight ? "text-red-600" : "text-gray-800"
-                  }`}
-                >
-                  {loc.city}{" "}
-                  {loc.highlight && (
-                    <span className="inline-block w-2 h-2 bg-red-600 rounded-full ml-1"></span>
-                  )}
-                </h3>
-                <p className="text-gray-600 text-sm mt-1">{loc.address}</p>
-              </div>
-            ))}
-          </div>
 
-          <div className="w-full flex justify-center">
-            <img
-              src="/image/map.jpg"
-              alt="India Map"
-              className="max-w-full h-auto object-contain"
-            />
+      <section className="bg-blue-50 text-black py-16 px-4 md:px-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-4xl font-extrabold text-blue-900 mb-4">
+              Our <span className="text-blue-600">Mission</span>
+            </h2>
+            <div className="w-16 h-1 bg-blue-500 rounded-full mb-6"></div>
+            <p className="text-gray-800 mb-5 leading-relaxed">
+              Our mission is to help customers run resilient supply chains at
+              minimal cost. We support 30K+ clients including e-commerce brands,
+              SMEs, and enterprises across FMCG, retail, electronics, lifestyle,
+              automotive, and more.
+            </p>
+            <p className="text-gray-800 leading-relaxed">
+              This is made possible through modern logistics infrastructure,
+              automation, global partnerships, and our own logistics operating
+              system that creates cross-service synergy and delivers unbeatable
+              customer value.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="bg-white text-black py-16 px-4 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-6">
+            <span className=" border-blue-600 pb-1">
+              Key Corporate Locations
+            </span>{" "}
+            <span className="text-gray-600">across India</span>
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div className="space-y-8">
+              {locations.map((loc) => (
+                <div key={loc.city}>
+                  <h3
+                    className={`text-xl font-semibold ${
+                      loc.highlight ? "text-blue-600" : "text-gray-800"
+                    }`}
+                  >
+                    {loc.city}
+                    {loc.highlight && (
+                      <span className="inline-block w-2 h-2 bg-blue-600 rounded-full ml-1"></span>
+                    )}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">{loc.address}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full flex justify-center">
+              <img
+                src="/image/map.jpg"
+                alt="India Map"
+                className="max-w-full h-auto object-contain rounded-lg shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

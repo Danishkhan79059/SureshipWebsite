@@ -117,125 +117,102 @@ export default function page() {
             Trusted partner for small businesses, large marketplaces and anyone
             else looking to send parcels across the country efficiently
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-900 text-white  rounded hover:bg-gray-200 transition-all font-bold">
+          <button className="mt-6 px-6 py-3 bg-blue-900 text-white  cursor-pointer rounded transition-all font-bold">
             Sign Up as a Business →
           </button>
         </div>
       </main>
 
-      <div className="bg-white py-12 px-4 sm:px-6 lg:px-20">
-        <div className="max-w-screen-xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
-            <span className="font-bold">Drive efficiency</span> with scale to
-            reach the remotest corners of India
-          </h2>
-          <div className="h-1 w-20 bg-red-500 mx-auto mb-10" />
+   {/* Drive Efficiency Section */}
+<div className="bg-white py-16 px-4 sm:px-8 lg:px-20">
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">
+      <span className="text-blue-700">Drive efficiency</span> with scale to reach the remotest corners of India
+    </h2>
+    <div className="h-1 w-20 bg-blue-500 mx-auto mb-12 rounded-full" />
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-left">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center text-center"
-              >
-                <img
-                  src={feature.icon}
-                  alt={feature.title}
-                  className="h-12 w-12 mb-4"
-                />
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-left">
+      {features.map((feature, index) => (
+        <div key={index} className="flex flex-col items-center text-center transition transform hover:scale-105 duration-300">
+          <img src={feature.icon} alt={feature.title} className="h-14 w-14 mb-4" />
+          <h3 className="font-semibold text-lg text-blue-900 mb-2">{feature.title}</h3>
+          <p className="text-sm text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+{/* Segments Section */}
+<section className="bg-blue-50 text-black py-16 px-6 md:px-20">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">Segments</h2>
+    <p className="text-lg text-gray-800 mb-10 relative inline-block">
+      we serve
+      <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500" />
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {segments.map(({ icon, title }, index) => (
+        <div key={index} className="flex items-center space-x-4 hover:text-blue-600 transition duration-200">
+          <div className="text-3xl text-blue-700">{icon}</div>
+          <div className="text-lg font-semibold text-blue-900">{title}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Technology Platform Section */}
+<section className="bg-white px-6 py-20 lg:px-20">
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-light text-blue-900">
+      Grow your brand through our <br />
+      <span className="font-bold">technology driven</span> logistics platform
+    </h2>
+    <div className="w-16 h-1 bg-blue-500 mx-auto mt-3 mb-10 rounded-full" />
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+    {featuress.map((item, index) => (
+      <div key={index} className="text-center px-4 hover:bg-blue-50 p-6 rounded-xl transition duration-300">
+        <div className="text-4xl mb-4 text-blue-700">{item.icon}</div>
+        <h3 className="font-semibold text-lg text-blue-900 mb-2">{item.title}</h3>
+        <p className="text-gray-700 text-sm">{item.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* Services Section */}
+<section className="bg-blue-50 px-4 py-20 md:px-20">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl md:text-4xl font-light text-blue-900">
+      Explore other <span className="font-bold">Services</span>
+    </h2>
+    <div className="w-14 h-1 bg-blue-500 mx-auto mt-2 rounded-full"></div>
+  </div>
+
+  <div className="grid gap-10 md:grid-cols-3 max-w-7xl mx-auto">
+    {services.map((service, index) => (
+      <div key={index} className="relative group transition duration-300 transform hover:-translate-y-1">
+        <div className="overflow-hidden rounded-xl shadow-lg">
+          <img src={service.imageUrl} alt={service.title} className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+
+        {/* Decorative Dots */}
+        {index === 0 && <div className="absolute top-[35%] -left-2 w-3 h-3 bg-blue-500 rounded-full"></div>}
+        {index === 2 && <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-blue-500 rounded-full"></div>}
+
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold text-blue-900">{service.title}</h3>
+          <p className="text-gray-700 text-sm mt-1">{service.description}</p>
         </div>
       </div>
+    ))}
+  </div>
+</section>
 
-      <section className="bg-white text-black py-16 px-6 md:px-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Segments</h2>
-          <p className="text-lg text-gray-300 mb-10 relative inline-block">
-            we serve
-            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-red-500" />
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-black">
-            {segments.map(({ icon, title }, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-4 text-black hover:text-red-400 transition"
-              >
-                <div className="text-3xl">{icon}</div>
-                <div className="text-lg font-semibold">{title}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-16 lg:px-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-light text-black">
-            Grow your brand through our <br />
-            <span className="font-bold text-black">technology driven</span>{" "}
-            logistics platform
-          </h2>
-          <div className="w-16 h-1 bg-red-500 mx-auto mt-2 mb-10" />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {featuress.map((item, index) => (
-            <div key={index} className="text-center px-4">
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="font-semibold text-lg text-black mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-700 text-sm">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-16 md:px-20">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-light text-black">
-            Explore other <span className="font-bold">Services</span>
-          </h2>
-          <div className="w-14 h-1 bg-red-500 mx-auto mt-2"></div>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3 max-w-7xl mx-auto">
-          {services.map((service, index) => (
-            <div key={index} className="relative">
-              <div className="overflow-hidden rounded-lg">
-                <img
-                  src={service.imageUrl}
-                  alt={service.title}
-                  className="w-full h-52 object-cover rounded-lg"
-                />
-              </div>
-
-              {/* Red squares */}
-              {index === 0 && (
-                <div className="absolute top-[35%] -left-2 w-3 h-3 bg-red-500"></div>
-              )}
-              {index === 2 && (
-                <div className="absolute bottom-[35%] -right-2 w-3 h-3 bg-red-500"></div>
-              )}
-
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold text-black">
-                  {service.title}
-                </h3>
-                <p className="text-gray-700 text-sm mt-1">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </>
   );
 }

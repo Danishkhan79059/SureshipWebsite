@@ -1,103 +1,154 @@
+"use client";
 import React from "react";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
+
+import {
+  FaHeadset,
+  FaChalkboardTeacher,
+  FaVideo,
+  FaQuestionCircle,
+} from "react-icons/fa";
+
+const contactData = [
+  {
+    title: "Customer Support",
+    subtitle: "Got a query for us? Our support experts are just a click away.",
+    contacts: [
+      {
+        label: "Domestic Shipping",
+        phone: "7905955584",
+        email: "hellosureship.com",
+      },
+      {
+        label: "Cross Border Shipping",
+        phone: "7905955584",
+        email: "supportcb@sureship.com",
+      },
+      {
+        label: "Warehouse Fulfillment",
+        phone: "7905955584",
+        email: "hello@sureship.com",
+      },
+    ],
+  },
+  {
+    title: "Sales",
+    subtitle:
+      "Talk to our sales expert to kick start your worldwide shipping journey with us.",
+    contacts: [
+      {
+        label: "Domestic Shipping",
+        phone: "7905955584",
+        email: "sales@sureship.com",
+      },
+      {
+        label: "Cross Border Shipping",
+        phone: "7905955584",
+        email: "salescb@surehsip.com",
+      },
+      {
+        label: "Warehouse Fulfillment",
+        phone: "7905955584",
+        email: "sales@sureship.com",
+      },
+    ],
+  },
+];
+
+const contactDataa = [
+  {
+    icon: <FaHeadset className="text-4xl mb-2" />,
+    title: "Support",
+    subtitle: "Reach Us",
+    bg: "bg-white",
+    textColor: "text-blue-900",
+  },
+  {
+    icon: <FaHeadset className="text-4xl mb-2" />,
+    title: "Product demo",
+    subtitle: "Schedule a product demo ",
+    bg: "bg-white",
+    textColor: "text-blue-900",
+  },
+
+  {
+    icon: <FaVideo className="text-4xl mb-2" />,
+    title: "Media & Communication",
+    subtitle: "Media and Press information",
+    bg: "bg-white",
+    textColor: "text-blue-900",
+  },
+  {
+    icon: <FaQuestionCircle className="text-4xl  mb-2" />,
+    title: "HR Queries",
+    subtitle: "Connect with HR",
+    bg: "bg-white",
+    textColor: "text-blue-900",
+  },
+];
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white px-4 py-10 text-gray-800 sm:px-6 md:px-8 pt-30">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10 px-2">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
-            Hello, Welcome to Sureship Support Center
-          </h1>
-          <p className="text-sm sm:text-base text-red-500">
-            How can we help you today?
-          </p>
-        </div>
+    <>
+      {/* 🔷 Top Section with Header Text */}
+   <div className="bg-gradient-to-br from-blue-50 to-white text-blue-900 text-center py-10 px-4 md:px-16 pt-40">
+  <h1 className="text-3xl md:text-4xl font-bold mb-3">
+    Need Assistance? We're Just a Message Away
+  </h1>
+  <p className="text-lg md:text-xl max-w-3xl mx-auto">
+    Whether you have a question, need technical support, or want to explore our services, our dedicated team is here to assist you every step of the way. Reach out to us anytime — we're happy to help!
+  </p>
+</div>
 
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Sidebar */}
-          <div className="col-span-1 border rounded p-4 bg-gray-50 shadow-sm">
-            <h2 className="font-semibold text-lg mb-3">📦 Shipments</h2>
-            <ul className="space-y-2 text-sm">
-              <li className="text-red-600 font-medium">▪ Shipment Status</li>
-              <li>▪ Destination and Contact details</li>
-              <li>▪ Returns</li>
-              <li>▪ Report Issues</li>
-              <li>▪ Report on-field staff issues</li>
-              <li>▪ Fragile shipments</li>
-              <li>▪ General</li>
-              <li>▪ Partnerships</li>
-              <li>▪ Careers</li>
-              <li>▪ Media Query</li>
-              <li>▪ Business Queries</li>
-            </ul>
-
-            <h2 className="font-semibold text-lg mt-6 mb-2">🏢 Businesses</h2>
-            <ul className="space-y-2 text-sm">
-              <li>▪ Account Set up</li>
-              <li>▪ Shipments</li>
-              <li>▪ Payments</li>
-              <li>▪ Manage pick-up and drop</li>
-              <li>▪ API Integration Related</li>
-              <li>▪ Tracking Related</li>
-              <li>▪ Account operations</li>
-              <li>▪ International & Fulfillment</li>
-            </ul>
-          </div>
-
-          {/* Main Content */}
-          <div className="col-span-1 lg:col-span-3 space-y-6">
-            <div className="bg-gray-100 p-4 rounded shadow-sm">
-              <h3 className="font-semibold text-lg mb-2">📍 Shipment Status</h3>
-              <p className="text-sm mb-4">
-                <strong>How can I track my shipment?</strong>
-                <br />
-                To track your shipment, you can{" "}
-                <a href="#" className="text-blue-600 underline">
-                  download our app
-                </a>{" "}
-                or go to the{" "}
-                <a href="#" className="text-blue-600 underline">
-                  tracking page
-                </a>
-                .
+      <div className="bg-gradient-to-br from-blue-50 to-white py-16 px-4 md:px-16">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 pt-30">
+          {contactData.map((section, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-blue-600 p-8"
+            >
+              <h2 className="text-3xl font-extrabold text-blue-900 text-center mb-2">
+                {section.title}
+              </h2>
+              <p className="text-center text-gray-600 mb-6">
+                {section.subtitle}
               </p>
-              <ul className="space-y-2 text-sm">
-                <li>➕ Why is my package delayed?</li>
-                <li>
-                  ➕ My shipment status is still at 'Pick up.' What should I do?
-                </li>
-                <li>
-                  ➕ What do I do if tracking page doesn't show the expected
-                  date of arrival?
-                </li>
-                <li>
-                  ➕ My shipment is out for delivery. When will I receive it?
-                </li>
-                <li>
-                  ➕ How can I get the delivery of my shipment if I missed it
-                  today?
-                </li>
-                <li>
-                  ➕ Why can I see no update to the status of my shipment?
-                </li>
-                <li>
-                  ➕ How can I get the contact number of my delivery/pickup
-                  partner?
-                </li>
-                <li>➕ How can I reschedule delivery/pickup for my order?</li>
-              </ul>
-            </div>
 
-            <div className="bg-white p-4 rounded border shadow-sm">
-              <h4 className="font-semibold text-base mb-2">
-                Need support with your shipment?
-              </h4>
+              <div className="space-y-6">
+                {section.contacts.map((item, index) => (
+                  <div key={index} className="pt-4 border-t">
+                    <p className="font-semibold text-gray-800 mb-1 text-lg">
+                      {item.label}
+                    </p>
+                    <div className="flex items-center gap-3 text-sm text-gray-700">
+                      <FaPhoneAlt className="text-blue-600" />
+                      <span>{item.phone}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-gray-700 mt-1">
+                      <FaEnvelope className="text-blue-600" />
+                      <span>{item.email}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+
+      <div className="min-h-96 flex flex-wrap justify-center items-center gap-6 px-4 py-10 bg-white">
+        {contactDataa.map((item, index) => (
+          <div
+            key={index}
+            className={`${item.bg} ${item.textColor} w-64 h-64 rounded border border-gray-300 shadow-md flex flex-col justify-center items-center text-center p-4 transition hover:scale-105 duration-300`}
+          >
+            {item.icon}
+            <h2 className="font-semibold text-lg">{item.title}</h2>
+            <p className="text-sm mt-1">{item.subtitle}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

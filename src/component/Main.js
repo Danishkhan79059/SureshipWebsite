@@ -391,7 +391,7 @@ export default function Main() {
           <div className="relative w-full h-64 sm:h-96 md:h-[500px]">
             <div
               className="absolute inset-0 rounded-xl bg-cover bg-center"
-              style={{ backgroundImage: `url('/image/e (52).jpg')` }}
+              style={{ backgroundImage: `url('/image/e (65).jpg')` }}
             ></div>
           </div>
         </div>
