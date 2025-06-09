@@ -46,37 +46,37 @@ const features = [
     title: "Multi-Courier Integration",
     description:
       "Seamlessly connect with multiple courier partners from a single platform, eliminating the need to manage individual accounts.",
-    icon: "\u{1F310}", // Globe icon representing integration/connectivity
+     // Globe icon representing integration/connectivity
   },
   {
     title: "Smart Courier Allocation",
     description:
       "Automatically assign shipments to the most suitable courier based on cost, delivery speed, and performance history.",
-    icon: "\u{1F4BB}", // Laptop icon for smart tech
+    // icon: "\u{1F4BB}", // Laptop icon for smart tech
   },
   {
     title: "Real-Time Order Sync",
     description:
       "Sync orders and shipment statuses across platforms like Shopify, WooCommerce, and others in real time.",
-    icon: "\u{1F5A5}", // Monitor icon
+     // Monitor icon
   },
   {
     title: "Bulk Label & Invoice Generation",
     description:
       "Save time with one-click generation of shipping labels, invoices, and manifests for all your orders.",
-    icon: "\u{1F4C4}", // Document icon
+    // Document icon
   },
   {
     title: "NDR & RTO Management",
     description:
       "Reduce non-deliveries and returns with automated NDR follow-ups and performance analytics for better decision-making.",
-    icon: "\u{1F6E0}", // Tool icon for problem-solving
+    
   },
   {
     title: "Unified Dashboard & Reporting",
     description:
       "Track shipments, monitor courier performance, and get actionable insights from one central dashboard.",
-    icon: "\u{1F4CA}", // Bar chart icon
+   
   },
 ];
 
@@ -449,7 +449,7 @@ export default function Main() {
               className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex items-center space-x-4 mb-4">
-                <div className="text-blue-600 text-3xl">{feature.icon}</div>
+                {/* <div className="text-blue-600 text-3xl">{feature.icon}</div> */}
                 <h3 className="text-lg font-semibold text-gray-900">
                   {feature.title}
                 </h3>
