@@ -79,74 +79,78 @@ export default function Page() {
       </section>
 
       <section className="min-h-96 bg-white text-black py-20 px-6 md:px-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 ">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Navigate your logistics journey your way
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* BYOC Card */}
-          <div className="bg-gray-200 rounded-xl shadow-lg p-6 md:p-10">
-            <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
-              <span className="text-blue-500 text-2xl">🚚</span>
-              <h3 className="font-semibold text-lg md:text-xl">
-                Bring your own Carriers (BYOC)
-              </h3>
+          <div className="bg-gray-200 rounded-xl shadow-lg p-6 md:p-10 flex flex-col justify-between">
+            <div>
+              <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
+                <span className="text-blue-500 text-2xl">🚚</span>
+                <h3 className="font-semibold text-lg md:text-xl">
+                  Bring your own Carriers (BYOC)
+                </h3>
+              </div>
+              <ul className="space-y-4 text-sm md:text-base">
+                <li>
+                  Limited to one courier, reducing flexibility across regions.
+                </li>
+                <li>
+                  Restricted visibility and control over serviceable pin codes.
+                </li>
+                <li>
+                  Manual rate negotiations can lead to inconsistent pricing.
+                </li>
+                <li>Delayed COD remittance, managed solely by your courier.</li>
+                <li>
+                  Must coordinate directly with courier for delivery and weight
+                  disputes.
+                </li>
+                <li>
+                  No added protection — you're solely dependent on courier for
+                  damages/losses.
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-4 text-sm md:text-base">
-              <li>
-                Limited to one courier, reducing flexibility across regions.
-              </li>
-              <li>
-                Restricted visibility and control over serviceable pin codes.
-              </li>
-              <li>
-                Manual rate negotiations can lead to inconsistent pricing.
-              </li>
-              <li>Delayed COD remittance, managed solely by your courier.</li>
-              <li>
-                Must coordinate directly with courier for delivery and weight
-                disputes.
-              </li>
-              <li>
-                No added protection — you're solely dependent on courier for
-                damages/losses.
-              </li>
-            </ul>
             <button className="mt-8 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg w-full hover:bg-blue-700">
               Request A Call Back
             </button>
           </div>
 
           {/* Shipway Card */}
-          <div className="bg-[#eaf2ff] rounded-xl shadow-lg p-6 md:p-10">
-            <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
-              <img
-                src="https://sureship.in/assets/img/Sureship.png"
-                alt="Shipway"
-                className="h-6 md:h-8"
-              />
-              <h3 className="font-semibold text-lg md:text-xl">
-                SureShip carrier aggregator
-              </h3>
+          <div className="bg-[#eaf2ff] rounded-xl shadow-lg p-6 md:p-10 flex flex-col justify-between">
+            <div>
+              <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
+                <img
+                  src="https://sureship.in/assets/img/Sureship.png"
+                  alt="Shipway"
+                  className="h-6 md:h-8"
+                />
+                <h3 className="font-semibold text-lg md:text-xl">
+                  SureShip carrier aggregator
+                </h3>
+              </div>
+              <ul className="space-y-4 text-sm md:text-base">
+                <li>
+                  Partner with India’s leading courier providers for reliable
+                  delivery.
+                </li>
+                <li>
+                  Reach over 29,000+ pin codes across the country with ease.
+                </li>
+                <li>
+                  Enjoy competitive shipping rates starting from just ₹19 per
+                  500g.
+                </li>
+                <li> Fast COD settlements within 2 working days (D+2).</li>
+                <li>
+                  Get dedicated support for pickup scheduling and shipment
+                  queries.
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-4 text-sm md:text-base">
-              <li>
-                Partner with India’s leading courier providers for reliable
-                delivery.
-              </li>
-              <li>
-                Reach over 29,000+ pin codes across the country with ease.
-              </li>
-              <li>
-                Enjoy competitive shipping rates starting from just ₹19 per
-                500g.
-              </li>
-              <li> Fast COD settlements within 2 working days (D+2).</li>
-              <li>
-                Get dedicated support for pickup scheduling and shipment
-                queries.
-              </li>
-            </ul>
             <button className="mt-8 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg w-full hover:bg-blue-700">
               Start with Shipway Logistics
             </button>

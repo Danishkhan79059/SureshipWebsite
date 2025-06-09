@@ -4,18 +4,16 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MdCopyAll } from "react-icons/md";
 
-
-
 export default function Page() {
   const router = useRouter();
   const tabs = [
-    { label: "Mobile", placeholder: "Enter your mobile number" },
+    // { label: "Mobile", placeholder: "Enter your mobile number" },
     { label: "AWB", placeholder: "Enter your AWB number" },
-    { label: "Order Id", placeholder: "Enter your Order ID" },
-    { label: "LRN", placeholder: "Enter your LRN number" },
+    // { label: "Order Id", placeholder: "Enter your Order ID" },
+    // { label: "LRN", placeholder: "Enter your LRN number" },
   ];
 
-  const [selectedTab, setSelectedTab] = useState(tabs[1]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
   const [inputValue, setInputValue] = useState("38418510009483"); //38418510009483
   const [trackingResult, setTrackingResult] = useState(null);
   const [error, setError] = useState("");
@@ -280,8 +278,6 @@ export default function Page() {
           </div>
         ))}
       </div>
-
-   
     </>
   );
 }

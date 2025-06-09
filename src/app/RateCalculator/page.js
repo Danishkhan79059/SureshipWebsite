@@ -110,7 +110,7 @@ export default function Page() {
         </h1>
 
         <div className="flex flex-wrap gap-5 mb-12 justify-center md:justify-start">
-          {["Forward", "RTO",].map((tab) => (
+          {["Forward", "RTO"].map((tab) => (
             <button
               key={tab}
               onClick={() => setSelectedTab(tab)}
@@ -417,10 +417,22 @@ export default function Page() {
                         </div>
 
                         {rates[type] && (
-                          <div className="mt-4 text-sm text-gray-700 space-y-1">
-                            <p>COD Charge: ₹{rates[type].codCharge}</p>
-                            <p>Shipping cost: ₹{rates[type].tsAmount}</p>
-                            <p>GST: ₹{rates[type].additionalGst}</p>
+                          <div className="mt-4 text-sm text-gray-700">
+                            <p>
+                              {[
+                                !rates[type].rtoCharge &&
+                                  rates[type].codCharge > 0 &&
+                                  `COD Charge: ₹${rates[type].codCharge}`,
+                                rates[type].rtoCharge > 0 &&
+                                  `RTO Charge: ₹${rates[type].rtoCharge}`,
+                                rates[type].tsAmount > 0 &&
+                                  `Shipping cost: ₹${rates[type].tsAmount}`,
+                                rates[type].additionalGst > 0 &&
+                                  `GST: ₹${rates[type].additionalGst}`,
+                              ]
+                                .filter(Boolean)
+                                .join(" + ")}
+                            </p>
                           </div>
                         )}
                       </>
