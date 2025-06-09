@@ -17,18 +17,18 @@ const contactData = [
     contacts: [
       {
         label: "Domestic Shipping",
-        phone: "7905955584",
-        email: "hellosureship.com",
+        phone: "+91 88742 62636",
+        email: "support@sureship.in",
       },
       {
         label: "Cross Border Shipping",
-        phone: "7905955584",
+        phone: "+91 88742 62636",
         email: "supportcb@sureship.com",
       },
       {
         label: "Warehouse Fulfillment",
-        phone: "7905955584",
-        email: "hello@sureship.com",
+        phone: "+91 88742 62636",
+        email: "support@sureship.in",
       },
     ],
   },
@@ -39,18 +39,18 @@ const contactData = [
     contacts: [
       {
         label: "Domestic Shipping",
-        phone: "7905955584",
-        email: "sales@sureship.com",
+        phone: "+91 88742 62636",
+        email: "support@sureship.in",
       },
       {
         label: "Cross Border Shipping",
-        phone: "7905955584",
-        email: "salescb@surehsip.com",
+        phone: "+91 88742 62636",
+        email: "support@sureship.in",
       },
       {
         label: "Warehouse Fulfillment",
-        phone: "7905955584",
-        email: "sales@sureship.com",
+        phone: "+91 88742 62636",
+        email: "support@sureship.in",
       },
     ],
   },
@@ -92,14 +92,16 @@ export default function Page() {
   return (
     <>
       {/* 🔷 Top Section with Header Text */}
-   <div className="bg-gradient-to-br from-blue-50 to-white text-blue-900 text-center py-10 px-4 md:px-16 pt-40">
-  <h1 className="text-3xl md:text-4xl font-bold mb-3">
-    Need Assistance? We're Just a Message Away
-  </h1>
-  <p className="text-lg md:text-xl max-w-3xl mx-auto">
-    Whether you have a question, need technical support, or want to explore our services, our dedicated team is here to assist you every step of the way. Reach out to us anytime — we're happy to help!
-  </p>
-</div>
+      <div className="bg-gradient-to-br from-blue-50 to-white text-blue-900 text-center py-10 px-4 md:px-16 pt-40">
+        <h1 className="text-3xl md:text-4xl font-bold mb-3">
+          Need Assistance? We're Just a Message Away
+        </h1>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto">
+          Whether you have a question, need technical support, or want to
+          explore our services, our dedicated team is here to assist you every
+          step of the way. Reach out to us anytime — we're happy to help!
+        </p>
+      </div>
 
       <div className="bg-gradient-to-br from-blue-50 to-white py-16 px-4 md:px-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 pt-30">

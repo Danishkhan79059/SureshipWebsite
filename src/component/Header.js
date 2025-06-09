@@ -95,7 +95,7 @@ export default function Header() {
               onMouseLeave={() => sethovered(false)}
             >
               <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold cursor-pointer">
-                company
+                Company
               </span>
 
               {hovered && (
@@ -115,6 +115,14 @@ export default function Header() {
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
                       >
                         Careers
+                      </a>
+                    </li>
+                     <li>
+                      <a
+                        href="/Explore"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
+                      >
+                        Explore us
                       </a>
                     </li>
                   </ul>

@@ -155,7 +155,7 @@ export default function page() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {segments.map(({ icon, title }, index) => (
         <div key={index} className="flex items-center space-x-4 hover:text-blue-600 transition duration-200">
-          <div className="text-3xl text-blue-700">{icon}</div>
+          {/* <div className="text-3xl text-blue-700">{icon}</div> */}
           <div className="text-lg font-semibold text-blue-900">{title}</div>
         </div>
       ))}

@@ -88,7 +88,7 @@ export default function page() {
         </div>
       </main>
 
-  <section className="bg-gradient-to-b from-white to-blue-50 w-full px-4 py-16">
+      <section className="bg-gradient-to-b from-white to-blue-50 w-full px-4 py-16">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           {/* Left block */}
           <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-[2rem] flex flex-col items-center justify-center p-8 w-full lg:w-1/2 text-center shadow-lg">
@@ -112,34 +112,36 @@ export default function page() {
 
           {/* Right cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-1/2">
-            {[{
-              text: (
-                <>
-                  Start with as <br /> low as <strong>₹6/Kg</strong>
-                </>
-              )
-            },
-            {
-              text: (
-                <>
-                  <strong>18,700+</strong> <br /> Pin codes covered
-                </>
-              )
-            },
-            {
-              text: (
-                <>
-                  Dedicated <br /> Customer <strong>Support</strong>
-                </>
-              )
-            },
-            {
-              text: (
-                <>
-                  Scheduled <br /> <strong>Appointment</strong> deliveries
-                </>
-              )
-            }].map((card, index) => (
+            {[
+              {
+                text: (
+                  <>
+                    Start with as <br /> low as <strong>₹6/Kg</strong>
+                  </>
+                ),
+              },
+              {
+                text: (
+                  <>
+                    <strong>18,700+</strong> <br /> Pin codes covered
+                  </>
+                ),
+              },
+              {
+                text: (
+                  <>
+                    Dedicated <br /> Customer <strong>Support</strong>
+                  </>
+                ),
+              },
+              {
+                text: (
+                  <>
+                    Scheduled <br /> <strong>Appointment</strong> deliveries
+                  </>
+                ),
+              },
+            ].map((card, index) => (
               <div
                 key={index}
                 className="bg-gradient-to-br from-white to-blue-100 rounded-[2rem] p-6 text-center text-blue-900 font-semibold text-base md:text-lg flex items-center justify-center shadow hover:shadow-md transition"
@@ -157,7 +159,10 @@ export default function page() {
           {/* Text Section */}
           <div className="text-center lg:text-left w-full lg:w-1/2">
             <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 leading-snug">
-              Get <span className="text-blue-700 font-extrabold">eCommerce like experience</span>
+              Get{" "}
+              <span className="text-blue-700 font-extrabold">
+                eCommerce like experience
+              </span>
               <br /> with SureShip dedicated panel for your B2B shipments
             </h2>
           </div>

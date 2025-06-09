@@ -125,7 +125,7 @@ export default function Main() {
       <div className="min-h-screen  bg-white flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-20 py-10 pt-20 gap-10 ">
         <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
           <Image
-            src="/image/e (50).jpg"
+            src="/image/e (67).jpg"
             alt="Delivery Guy"
             width={1600}
             height={1200}
@@ -223,7 +223,7 @@ export default function Main() {
 
           <div className="relative z-10 max-w-3xl w-full mb-5 md:mb-0 ">
             <Image
-              src="/image/e (44).jpg"
+              src="/image/e (68).jpg"
               alt="Delivery Guy"
               width={1200}
               height={950}

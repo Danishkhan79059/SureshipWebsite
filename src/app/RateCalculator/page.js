@@ -65,7 +65,7 @@ export default function Page() {
     setLoading(true); // Start loading
     try {
       const res = await fetch(
-        "http://localhost:3500/publicRoutes/getRateOptions",
+        "https://backend.sureship.in/publicRoutes/getRateOptions",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -159,7 +159,7 @@ export default function Page() {
               <div>
                 <label className=" text-gray-700 font-medium mb-2 flex items-center justify-between">
                   <span>Package Type</span>
-                  {/* <button
+                  <button
                     type="button"
                     onClick={() => {
                       setShowAdvanced(true);
@@ -172,7 +172,7 @@ export default function Page() {
                     className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition"
                   >
                     + Advanced Package
-                  </button> */}
+                  </button>
                 </label>
                 <select
                   className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
