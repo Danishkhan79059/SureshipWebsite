@@ -33,7 +33,7 @@ export default function Page() {
   const [paymentMode, setPaymentMode] = useState("Prepaid");
   const [packageType, setPackageType] = useState("Plastic cover/Flyer");
   const [loading, setLoading] = useState(false);
-  const [pickupPincode, setPickupPincode] = useState("232329");
+  const [pickupPincode, setPickupPincode] = useState("122001");
   const [deliveryPincode, setDeliveryPincode] = useState("122001");
   const [weight, setWeight] = useState(500);
   const [length, setLength] = useState(1);
@@ -110,7 +110,7 @@ export default function Page() {
         </h1>
 
         <div className="flex flex-wrap gap-5 mb-12 justify-center md:justify-start">
-          {["Forward", "RTO", "Reverse"].map((tab) => (
+          {["Forward", "RTO",].map((tab) => (
             <button
               key={tab}
               onClick={() => setSelectedTab(tab)}
@@ -159,7 +159,7 @@ export default function Page() {
               <div>
                 <label className=" text-gray-700 font-medium mb-2 flex items-center justify-between">
                   <span>Package Type</span>
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => {
                       setShowAdvanced(true);
@@ -172,7 +172,7 @@ export default function Page() {
                     className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition"
                   >
                     + Advanced Package
-                  </button>
+                  </button> */}
                 </label>
                 <select
                   className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"

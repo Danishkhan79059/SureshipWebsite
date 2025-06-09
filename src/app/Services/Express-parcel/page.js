@@ -11,19 +11,19 @@ const features = [
       "Reach your customers on industry leading Turn Around Time across Air and Surface modes",
   },
   {
-    icon: "/icons/remittance.svg",
+    icon: "/image/e (72).jpg",
     title: "Free early COD remittance",
     description:
       "Free up your working capital with next day COD remittance at no additional charges",
   },
   {
-    icon: "/icons/service.svg",
+    icon: "/image/e (73).jpg",
     title: "Faster customer service",
     description:
       "Directly work with our dedicated service representatives to promptly resolve all your queries",
   },
   {
-    icon: "/icons/value-added.svg",
+    icon: "/image/e (74).jpg",
     title: "Value added services",
     description:
       "Verify returns at customer's doorstep and improve saleability for your products",
@@ -155,7 +155,7 @@ export default function page() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {segments.map(({ icon, title }, index) => (
         <div key={index} className="flex items-center space-x-4 hover:text-blue-600 transition duration-200">
-          {/* <div className="text-3xl text-blue-700">{icon}</div> */}
+          <div className="text-3xl text-blue-700">{icon}</div>
           <div className="text-lg font-semibold text-blue-900">{title}</div>
         </div>
       ))}

@@ -46,37 +46,31 @@ const features = [
     title: "Multi-Courier Integration",
     description:
       "Seamlessly connect with multiple courier partners from a single platform, eliminating the need to manage individual accounts.",
-     // Globe icon representing integration/connectivity
   },
   {
     title: "Smart Courier Allocation",
     description:
       "Automatically assign shipments to the most suitable courier based on cost, delivery speed, and performance history.",
-    // icon: "\u{1F4BB}", // Laptop icon for smart tech
   },
   {
     title: "Real-Time Order Sync",
     description:
       "Sync orders and shipment statuses across platforms like Shopify, WooCommerce, and others in real time.",
-     // Monitor icon
   },
   {
     title: "Bulk Label & Invoice Generation",
     description:
       "Save time with one-click generation of shipping labels, invoices, and manifests for all your orders.",
-    // Document icon
   },
   {
     title: "NDR & RTO Management",
     description:
       "Reduce non-deliveries and returns with automated NDR follow-ups and performance analytics for better decision-making.",
-    
   },
   {
     title: "Unified Dashboard & Reporting",
     description:
       "Track shipments, monitor courier performance, and get actionable insights from one central dashboard.",
-   
   },
 ];
 
@@ -125,7 +119,7 @@ export default function Main() {
       <div className="min-h-screen  bg-white flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-20 py-10 pt-20 gap-10 ">
         <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
           <Image
-            src="/image/e (67).jpg"
+            src="/image/e (70).jpg"
             alt="Delivery Guy"
             width={1600}
             height={1200}
@@ -158,7 +152,7 @@ export default function Main() {
                   <LuWeight className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
                 <p className="text-black text-left font-medium text-md sm:text-xl">
-                  Lowest weight dispute %age promise
+                  Lowest weight dispute %age
                 </p>
               </div>
 
@@ -176,7 +170,7 @@ export default function Main() {
                   <LiaShippingFastSolid className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
                 <p className="text-black text-left font-medium text-md sm:text-xl">
-                  Start shipping from just ₹19/500 gms*
+                  Start shipping from just ₹19
                 </p>
               </div>
             </div>
@@ -546,8 +540,7 @@ export default function Main() {
               Our smart autopilot system streamlines logistics, prevents failed
               deliveries, and improves overall efficiency—helping your business
               grow faster, operate smarter, and deliver better results
-              effortlessly." Let me know if you'd like variations in tone or
-              audience (e.g., B2B, e-commerce, startup)
+              effortlessly.
             </p>
             {/* <button className="bg-blue-700 hover:bg-blue-800 transition-all duration-200 text-white text-lg font-medium py-3 px-8 rounded-full shadow-md">
               Get Started Today
@@ -558,7 +551,7 @@ export default function Main() {
           <div className="w-full lg:w-1/2 p-6 flex justify-center items-center">
             <div className="relative z-10 w-full md:w-3/4 flex justify-center mr-20">
               <Image
-                src="/image/e (53).jpg"
+                src="/image/e (71).jpg"
                 alt="Delivery Guy"
                 width={1600}
                 height={1200}
