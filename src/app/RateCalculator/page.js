@@ -185,9 +185,10 @@ export default function Page() {
                 </select>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                {/* Weight input */}
+                <div className="flex flex-col">
+                  <label className="text-gray-700 font-medium mb-2">
                     Weight (gm)
                   </label>
                   <input
@@ -199,8 +200,9 @@ export default function Page() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-4">
+                {/* Dimensions inputs */}
+                <div className="flex flex-col">
+                  <label className="text-gray-700 font-medium mb-2">
                     Dimensions (L × B × H in cm)
                   </label>
                   <div className="flex gap-4">

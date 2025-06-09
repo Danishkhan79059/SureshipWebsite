@@ -82,7 +82,7 @@ export default function page() {
           <p className="mt-4 text-sm md:text-base text-white">
             Experience customised, multi-modal solutions for global shipping
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded  transition-all cursor-pointer">
+          <button   onClick={() => (window.location.href = "/track")} className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded  transition-all cursor-pointer">
             Express parcel
           </button>
         </div>

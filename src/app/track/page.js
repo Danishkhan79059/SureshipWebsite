@@ -213,7 +213,7 @@ export default function Page() {
         {/* Right Image Section */}
         <div className="relative z-10 w-full md:w-3/4 flex justify-center ">
           <Image
-            src="/image/e (58).jpg"
+            src="/image/e (66).jpg"
             alt="Delivery Guy"
             width={1600}
             height={1200}

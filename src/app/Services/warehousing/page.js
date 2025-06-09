@@ -101,20 +101,26 @@ export default function page() {
         {/* Content */}
         <div className="relative z-20 flex flex-col justify-center items-start px-6 md:px-20 py-24 md:py-32 text-white max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            <span className="text-white">Distribute inventory across regions to reduce delivery time and costs</span>
+            <span className="text-white">
+              Distribute inventory across regions to reduce delivery time and
+              costs
+            </span>
           </h1>
 
           <p className="mt-4 text-sm md:text-base text-white">
             Keep inventory near customers to reduce delivery time, increase
             satisfaction, and optimize logistics operations effectively
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all">
+          <button
+            onClick={() => (window.location.href = "/")}
+            className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all"
+          >
             Get started
           </button>
         </div>
       </main>
 
- <section className="bg-gradient-to-b from-white to-blue-50 px-4 py-16 md:px-20">
+      <section className="bg-gradient-to-b from-white to-blue-50 px-4 py-16 md:px-20">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-blue-900">
             How our seamless order fulfilment works
@@ -124,7 +130,10 @@ export default function page() {
 
         <div className="grid gap-8 md:grid-cols-4 max-w-7xl mx-auto">
           {servicess.map((service, index) => (
-            <div key={index} className="relative bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+            <div
+              key={index}
+              className="relative bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition"
+            >
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={service.imageUrl}
@@ -189,7 +198,10 @@ export default function page() {
 
         <div className="grid gap-8 md:grid-cols-3 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <div key={index} className="relative bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition">
+            <div
+              key={index}
+              className="relative bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition"
+            >
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={service.imageUrl}
@@ -238,7 +250,10 @@ export default function page() {
               efficiency.
             </p>
 
-            <button className="bg-blue-900 text-white px-6 py-2 text-sm rounded hover:bg-blue-800 transition">
+            <button
+              onClick={() => (window.location.href = "/support")}
+              className="bg-blue-900 text-white px-6 py-2 text-sm rounded hover:bg-blue-800 transition"
+            >
               Contact Us <span className="ml-2">→</span>
             </button>
           </div>

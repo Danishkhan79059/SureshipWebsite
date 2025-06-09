@@ -79,7 +79,7 @@ export default function page() {
             <br />
             ready to solve challenging business problems.
           </h2>
-          <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-full shadow-md transition-all duration-300">
+          <button   onClick={() => (window.location.href = "/")} className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-full shadow-md transition-all duration-300">
             Explore Careers
           </button>
         </div>

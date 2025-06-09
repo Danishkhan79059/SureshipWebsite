@@ -82,9 +82,9 @@ export default function page() {
             Send bulk shipments across India via our Part Truck Load (PTL)
             network
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded transition-all cursor-pointer">
+          {/* <button className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded transition-all cursor-pointer">
             Sign up as business
-          </button>
+          </button> */}
         </div>
       </main>
 

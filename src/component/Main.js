@@ -4,6 +4,7 @@ import { FaHeadphonesAlt } from "react-icons/fa";
 import { LuWeight } from "react-icons/lu";
 import { TbCalendarUser } from "react-icons/tb";
 import { LiaShippingFastSolid } from "react-icons/lia";
+// import { useRouter } from "next/router";
 
 const partners = [
   {
@@ -80,6 +81,7 @@ const features = [
 ];
 
 export default function Main() {
+  // const router = useRouter();
   const items = [
     {
       number: "1",
@@ -181,7 +183,10 @@ export default function Main() {
 
             {/* Call-to-Action Button */}
             <div className="mt-10">
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-700 transition">
+              <button
+                onClick={() => (window.location.href = "/track")}
+                className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-700 transition"
+              >
                 Start Shipping Now
               </button>
             </div>
@@ -279,7 +284,10 @@ export default function Main() {
             </div>
           </div>
 
-          <button className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+          <button
+            onClick={() => (window.location.href = "/track")}
+            className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300"
+          >
             Explore More
           </button>
         </div>
@@ -357,9 +365,9 @@ export default function Main() {
             </div>
           </div>
 
-          <button className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+          {/* <button className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
             Request a Demo
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -382,7 +390,10 @@ export default function Main() {
               <br className="hidden sm:block" />
               familiar.
             </p>
-            <button className="bg-blue-600 text-white text-base sm:text-lg font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded shadow hover:bg-blue-700 transition">
+            <button
+              onClick={() => (window.location.href = "/track")}
+              className="bg-blue-600 text-white text-base sm:text-lg font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded shadow hover:bg-blue-700 transition"
+            >
               Explore Integrations &gt;&gt;
             </button>
           </div>
@@ -568,9 +579,10 @@ export default function Main() {
               key={item.number}
               className="bg-white p-6 rounded-lg shadow-md flex gap-4 items-start"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#00aaff] text-white font-bold shadow-md">
+              <div className="flex items-center justify-center min-w-10 min-h-10 w-10 h-10 rounded-full bg-[#00aaff] text-white font-bold shadow-md">
                 {item.number}
               </div>
+
               <div>
                 <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
                 <p className="text-sm text-gray-700">{item.description}</p>
