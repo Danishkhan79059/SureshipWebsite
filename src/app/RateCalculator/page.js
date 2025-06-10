@@ -92,8 +92,8 @@ export default function Page() {
         setRates({
           Surface: surfaceObject.rateSummary,
           Air: airObject.rateSummary,
-          SurfaceTat:surfaceObject.tat,
-          AirTat:airObject.tat
+          SurfaceTat: surfaceObject.tat,
+          AirTat: airObject.tat,
         });
       }
     } catch (err) {
@@ -334,15 +334,24 @@ export default function Page() {
                     key={index}
                     className="border border-gray-300 rounded-2xl p-4 space-y-4 relative shadow-sm"
                   >
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-black">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-black">
                       <input
                         type="number"
-                        placeholder="Weight Per Box"
+                        placeholder="Boxes"
+                        value={box.noOfBoxes}
+                        onChange={(e) =>
+                          handleBoxChange(index, "noOfBoxes", e.target.value)
+                        }
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                      />
+                      <input
+                        type="number"
+                        placeholder="Weight"
                         value={box.Weightperbox}
                         onChange={(e) =>
                           handleBoxChange(index, "Weightperbox", e.target.value)
                         }
-                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full "
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
                       />
                       <input
                         type="number"
@@ -351,7 +360,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "length", e.target.value)
                         }
-                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
                       />
                       <input
                         type="number"
@@ -360,7 +369,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "width", e.target.value)
                         }
-                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
                       />
                       <input
                         type="number"
@@ -369,7 +378,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "height", e.target.value)
                         }
-                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
                       />
                     </div>
 
@@ -414,29 +423,50 @@ export default function Page() {
                       </div>
                     ) : (
                       <>
-                        {(type === "Surface" || type === "Air") && (
-                          <div className="">
-                            <img
-                              src="/image/e (76).jpg"
-                              alt="company logo"
-                              className="h-20 w-auto"
-                            />
-                          </div>
-                        )}
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <h2 className="text-xl font-extrabold text-blue-900">
-                              {type}
-                            </h2>
-                            <p className="text-indigo-400 font-semibold tracking-wide mt-1">
-                              Delivery in  {type === "Surface" ? rates["SurfaceTat"] : rates["AirTat"]} Day
-                            </p>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-4xl font-extrabold text-blue-900 drop-shadow-md">
-                              ₹{rates[type]?.total ?? "--"}
-                            </p>
-                          </div>
+                        <div className="flex flex-col justify-between items-center w-full">
+                          {(type === "Surface" || type === "Air") && (
+                            <>
+                              <div className="flex items-center justify-start w-full">
+                                <img
+                                  src="/image/e (81).jpg"
+                                  alt="company logo"
+                                  className="h-6 w-auto"
+                                />
+                              </div>
+                              {/* Changed to flex-col and items-center */}
+                              <div className="flex items-start justify-between w-full">
+                                {/* Removed mt-2 here */}
+                                <h2 className="text-xl  text-blue-900">
+                                  {type}
+                                  <p className="text-indigo-400 font-semibold tracking-wide mt-1 flex items-center gap-1">
+                                    Delivered in{" "}
+                                    <span className="flex items-center gap-1">
+                                      {type === "Surface" ? (
+                                        <span>
+                                          {rates["SurfaceTat"]}
+                                          {rates["SurfaceTat"] === 1
+                                            ? " Day"
+                                            : " Days"}
+                                        </span>
+                                      ) : (
+                                        <span>
+                                          {rates["AirTat"]}{" "}
+                                          {rates["AirTat"] === 1
+                                            ? " Day"
+                                            : " Days"}
+                                        </span>
+                                      )}
+                                    </span>
+                                  </p>
+                                </h2>
+                                <div className="text-right">
+                                  <p className="text-4xl font-extrabold text-blue-900 drop-shadow-md">
+                                    ₹{rates[type]?.total ?? "--"}
+                                  </p>
+                                </div>
+                              </div>
+                            </>
+                          )}
                         </div>
 
                         {rates[type] && (

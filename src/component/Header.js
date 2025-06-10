@@ -147,14 +147,14 @@ export default function Header() {
             >
               Contact us
             </Link>
-            {/* <a
-              href="https://demo.vizta.in/"
+            <a
+              href="https://app.sureship.in/coming_soon"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-900 text-white px-5 py-2 rounded-md text-sm font-semibold flex items-center gap-2 transition-all hover:opacity-90"
             >
               <FaSignInAlt /> Login
-            </a> */}
+            </a>
 
             <Link
               href="/RateCalculator"
@@ -306,14 +306,14 @@ export default function Header() {
           >
             Contact us
           </Link>
-          {/* <a
-            href="https://demo.vizta.in/"
+          <a
+            href="https://app.sureship.in/coming_soon"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-900 w-1/2 text-white px-5 py-2 rounded-md text-sm font-semibold flex items-center gap-2 transition-all hover:opacity-90"
           >
             <FaSignInAlt /> Login
-          </a> */}
+          </a>
 
           <Link
             href="/RateCalculator"
