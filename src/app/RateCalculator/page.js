@@ -5,9 +5,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 
 export default function Page() {
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [boxes, setBoxes] = useState([
-    { noOfBoxes: "", Weightperbox: "", length: "", height: "", width: "" },
-  ]);
+  const [boxes, setBoxes] = useState([]);
 
   const multipleBoxesRef = useRef(null);
 
@@ -35,23 +33,20 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [pickupPincode, setPickupPincode] = useState("122001");
   const [deliveryPincode, setDeliveryPincode] = useState("122001");
-  const [weight, setWeight] = useState(500);
+  const [weight, setWeight] = useState(0.5);
   const [length, setLength] = useState(1);
   const [width, setWidth] = useState(1);
   const [height, setHeight] = useState(1);
   const [codAmount, setCodAmount] = useState(1);
   const [rates, setRates] = useState({ Surface: null, Air: null });
   const isValidPincode = (pin) => pin.length === 6 && /^\d{6}$/.test(pin);
+  console.log("boxes.length", boxes.length);
 
   const fetchRates = async () => {
     if (!isValidPincode(pickupPincode) || !isValidPincode(deliveryPincode))
       return;
 
     const requestBody = {
-      weightKg: weight,
-      lengthCm: length,
-      breadthCm: width,
-      heightCm: height,
       originPincode: pickupPincode,
       destinationPincode: deliveryPincode,
       isGSTinclusiv: false,
@@ -59,14 +54,24 @@ export default function Page() {
       isRTO: selectedTab === "RTO",
       // codAmount: paymentMode === "COD" ? codAmount : 0,
       codAmount: paymentMode === "COD" ? Number(codAmount) : 0,
-      weightDetailsArray: boxes.map((box) => {
-        return {
-          weightKg: box.Weightperbox,
-          lengthCm: box.length,
-          breadthCm: box.width,
-          heightCm: box.height,
-        };
-      }),
+      weightDetailsArray:
+        boxes.length === 0
+          ? [
+              {
+                weightKg: weight,
+                lengthCm: length,
+                breadthCm: width,
+                heightCm: height,
+              },
+            ]
+          : boxes.map((box) => {
+              return {
+                weightKg: box.Weightperbox,
+                lengthCm: box.length,
+                breadthCm: box.width,
+                heightCm: box.height,
+              };
+            }),
     };
     console.log("weightDetailsArray", requestBody.weightDetailsArray);
 
@@ -87,6 +92,8 @@ export default function Page() {
         setRates({
           Surface: surfaceObject.rateSummary,
           Air: airObject.rateSummary,
+          SurfaceTat:surfaceObject.tat,
+          AirTat:airObject.tat
         });
       }
     } catch (err) {
@@ -101,13 +108,13 @@ export default function Page() {
   }, [
     pickupPincode,
     deliveryPincode,
+    paymentMode,
+    selectedTab,
+    codAmount,
     weight,
     length,
     width,
     height,
-    paymentMode,
-    selectedTab,
-    codAmount,
     boxes,
   ]);
 
@@ -173,6 +180,15 @@ export default function Page() {
                     type="button"
                     onClick={() => {
                       setShowAdvanced(true);
+                      setBoxes([
+                        {
+                          noOfBoxes: "",
+                          Weightperbox: "",
+                          length: "",
+                          height: "",
+                          width: "",
+                        },
+                      ]);
                       setTimeout(() => {
                         multipleBoxesRef.current?.scrollIntoView({
                           behavior: "smooth",
@@ -240,7 +256,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="bg-indigo-100 border-l-8 border-indigo-400 p-5 rounded-xl text-indigo-800 text-sm font-semibold select-none shadow-inner">
+              {/* <div className="bg-indigo-100 border-l-8 border-indigo-400 p-5 rounded-xl text-indigo-800 text-sm font-semibold select-none shadow-inner">
                 <p>
                   <span className="font-bold">
                     Volumetric Weight Calculation:
@@ -249,7 +265,7 @@ export default function Page() {
                   Surface = (L × B × H) / 5000 <br />
                   Air = (L × B × H) / 4000
                 </p>
-              </div>
+              </div> */}
 
               <div>
                 <label className="block text-gray-700 font-semibold mb-4">
@@ -309,24 +325,16 @@ export default function Page() {
 
             {showAdvanced && (
               <div className="mt-12 space-y-6" ref={multipleBoxesRef}>
-                <h3 className="text-lg  text-gray-700">
+                <h3 className="text-lg font-semibold text-gray-700">
                   Advanced Package - Multiple Boxes
                 </h3>
+
                 {boxes.map((box, index) => (
                   <div
                     key={index}
-                    className="border border-gray-300 rounded-xl p-4 space-y-4 relative"
+                    className="border border-gray-300 rounded-2xl p-4 space-y-4 relative shadow-sm"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-black">
-                      <input
-                        type="number"
-                        placeholder="No of boxes"
-                        value={box.noOfBoxes}
-                        onChange={(e) =>
-                          handleBoxChange(index, "noOfBoxes", e.target.value)
-                        }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
-                      />
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-black">
                       <input
                         type="number"
                         placeholder="Weight Per Box"
@@ -334,7 +342,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "Weightperbox", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full "
                       />
                       <input
                         type="number"
@@ -343,7 +351,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "length", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
                       />
                       <input
                         type="number"
@@ -352,7 +360,7 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "width", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
                       />
                       <input
                         type="number"
@@ -361,15 +369,15 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "height", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-3 py-2 rounded-md text-sm placeholder:text-sm w-full"
                       />
                     </div>
 
-                    <div className="flex justify-end space-x-3">
+                    <div className="flex justify-end gap-4">
                       <button
                         type="button"
                         onClick={addBox}
-                        className="text-green-600 hover:text-green-800"
+                        className="text-green-600 hover:text-green-800 text-lg"
                       >
                         <FaPlus />
                       </button>
@@ -377,7 +385,7 @@ export default function Page() {
                         <button
                           type="button"
                           onClick={() => deleteBox(index)}
-                          className="text-red-600 hover:text-red-800"
+                          className="text-red-600 hover:text-red-800 text-lg"
                         >
                           <FaTrash />
                         </button>
@@ -395,7 +403,7 @@ export default function Page() {
                 {["Surface", "Air"].map((type) => (
                   <div
                     key={type}
-                    className="bg-white rounded-md p-8 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
+                    className="bg-white rounded-md p-4 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
                   >
                     {loading ? (
                       <div className="flex justify-center items-center space-x-2">
@@ -406,13 +414,22 @@ export default function Page() {
                       </div>
                     ) : (
                       <>
+                        {(type === "Surface" || type === "Air") && (
+                          <div className="">
+                            <img
+                              src="/image/e (76).jpg"
+                              alt="company logo"
+                              className="h-20 w-auto"
+                            />
+                          </div>
+                        )}
                         <div className="flex justify-between items-center">
                           <div>
                             <h2 className="text-xl font-extrabold text-blue-900">
                               {type}
                             </h2>
                             <p className="text-indigo-400 font-semibold tracking-wide mt-1">
-                              Delivery in 1 Day
+                              Delivery in  {type === "Surface" ? rates["SurfaceTat"] : rates["AirTat"]} Day
                             </p>
                           </div>
                           <div className="text-right">

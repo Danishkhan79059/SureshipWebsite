@@ -1,14 +1,8 @@
 "use client";
 import React from "react";
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import { FaMapMarkerAlt } from "react-icons/fa";
 
-import {
-  FaHeadset,
-  FaChalkboardTeacher,
-  FaVideo,
-  FaQuestionCircle,
-} from "react-icons/fa";
+import { FaHeadset, FaVideo, FaQuestionCircle } from "react-icons/fa";
 
 const contactData = [
   {
@@ -101,6 +95,44 @@ export default function Page() {
           explore our services, our dedicated team is here to assist you every
           step of the way. Reach out to us anytime — we're happy to help!
         </p>
+      </div>
+
+      <div className="min-h-56 bg-white">
+        {/* Header */}
+        <div className="bg-blue-900 text-white py-16 px-4 md:px-16">
+          <h1 className="text-3xl md:text-4xl font-semibold">Customer Care</h1>
+          <div className="mt-2 w-24 border-t-4 border-blue-600"></div>
+        </div>
+
+        {/* Content */}
+        <div className="px-4 md:px-16 py-10 text-sm md:text-base text-[#333] max-w-4xl mx-auto">
+          <p className="mb-4">
+            At Sureship, we are committed to providing exceptional customer
+            support and logistics solutions tailored to your needs. Whether
+            you're tracking a shipment, resolving a delivery issue, or need
+            general assistance, we are here to help. You can easily reach us
+            through our{" "}
+            <a href="#" className="text-blue-600 hover:underline ml-1">
+              Customer Query Form
+            </a>
+            , call us at <span className="font-semibold">+91 88742 62636</span>,
+            or email us at{" "}
+            <a
+              href="mailto:support@sureship.in"
+              className="text-blue-600 hover:underline"
+            >
+              support@sureship.in
+            </a>
+          </p>
+
+          <ul className="list-decimal list-inside space-y-1">
+            <li>Customer service is available in both English and Hindi</li>
+            <li>
+              Service hours: 09:00 AM IST - 07:00 PM IST, Monday to Saturday
+            </li>
+            <li>Standard call rates may apply</li>
+          </ul>
+        </div>
       </div>
 
       <div className="bg-gradient-to-br from-blue-50 to-white py-16 px-4 md:px-16">

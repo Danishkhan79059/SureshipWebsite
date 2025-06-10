@@ -39,12 +39,18 @@ export default function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-blue-600 text-sm font-semibold"
+            >
+              Home
+            </Link>
             <div
               className="relative inline-block text-left"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <span className="text-gray-700 hover:text-blue-600  flex items-center  px-4 py-2 hover:bg-white rounded-md text-sm font-semibold cursor-pointer">
+              <span className="text-gray-700 hover:text-blue-600  flex items-center  py-2 hover:bg-white rounded-md text-sm font-semibold cursor-pointer">
                 Services
               </span>
 
@@ -94,7 +100,7 @@ export default function Header() {
               onMouseEnter={() => sethovered(true)}
               onMouseLeave={() => sethovered(false)}
             >
-              <span className="text-gray-700 hover:text-blue-600  px-4 py-2 text-sm font-semibold cursor-pointer">
+              <span className="text-gray-700 hover:text-blue-600   py-2 text-sm font-semibold cursor-pointer">
                 Company
               </span>
 
@@ -117,7 +123,7 @@ export default function Header() {
                         Careers
                       </a>
                     </li>
-                     <li>
+                    <li>
                       <a
                         href="/Explore"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-black"
@@ -136,10 +142,10 @@ export default function Header() {
               Track
             </Link>
             <Link
-              href="/support"
+              href="/contactus"
               className="text-gray-700 hover:text-blue-600 text-sm font-semibold"
             >
-              Support
+              Contact us
             </Link>
             {/* <a
               href="https://demo.vizta.in/"
@@ -174,12 +180,18 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden px-6 py-4 space-y-4 bg-white shadow-inner animate-slideDown">
           {/* Services with dropdown toggle */}
+
+          <Link href="/" className="block text-gray-700 hover:text-blue-600">
+            Home
+          </Link>
           <div>
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className="w-full flex items-center justify-between text-gray-600 font-medium"
             >
-              <span className="flex items-center gap-2 cursor-pointer">Services</span>
+              <span className="flex items-center gap-2 cursor-pointer">
+                Services
+              </span>
               <svg
                 className={`w-4 h-4 transform transition-transform duration-200 ${
                   servicesOpen ? "rotate-180" : "rotate-0"
@@ -292,7 +304,7 @@ export default function Header() {
             href="/support"
             className="block text-gray-700 hover:text-blue-600"
           >
-            Support
+            Contact us
           </Link>
           {/* <a
             href="https://demo.vizta.in/"

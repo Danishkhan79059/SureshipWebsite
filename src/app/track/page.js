@@ -241,15 +241,25 @@ export default function Page() {
                 )
                   return null;
 
-                const isActive = i <= 3;
+                // const isActive = i <= 3;
 
                 return (
                   <div key={i} className="relative">
-                    <div
+                    {/* <div
                       className="absolute -left-[37px] top-1 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm shadow"
                       style={{
                         backgroundColor: isActive ? "#3B82F6" : "#E5E7EB",
                         border: `2px solid ${isActive ? "#3B82F6" : "#D1D5DB"}`,
+                      }}
+                    >
+                      📅
+                    </div> */}
+                    <div
+                      className="absolute -left-[37px] top-1 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm shadow"
+                      style={{
+                        backgroundColor: "#3B82F6", // Always blue
+                        border: "2px solid #3B82F6", // Always blue
+                        color: "white", // Ensure icon text is white
                       }}
                     >
                       📅
