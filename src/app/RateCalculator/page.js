@@ -195,7 +195,7 @@ export default function Page() {
                         });
                       }, 100);
                     }}
-                    className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition"
+                    className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition  cursor-pointer"
                   >
                     + Advanced Package
                   </button>
