@@ -41,8 +41,6 @@ export default function Page() {
   const [height, setHeight] = useState(1);
   const [codAmount, setCodAmount] = useState(1);
   const [rates, setRates] = useState({ Surface: null, Air: null });
-  console.log("rates", rates);
-
   const isValidPincode = (pin) => pin.length === 6 && /^\d{6}$/.test(pin);
 
   const fetchRates = async () => {
@@ -50,7 +48,7 @@ export default function Page() {
       return;
 
     const requestBody = {
-      weightKg: weight / 1000,
+      weightKg: weight,
       lengthCm: length,
       breadthCm: width,
       heightCm: height,
@@ -60,8 +58,17 @@ export default function Page() {
       isCOD: paymentMode === "COD",
       isRTO: selectedTab === "RTO",
       // codAmount: paymentMode === "COD" ? codAmount : 0,
-      codAmount: paymentMode === "COD" ? Number(codAmount)  : 0,
+      codAmount: paymentMode === "COD" ? Number(codAmount) : 0,
+      weightDetailsArray: boxes.map((box) => {
+        return {
+          weightKg: box.Weightperbox,
+          lengthCm: box.length,
+          breadthCm: box.width,
+          heightCm: box.height,
+        };
+      }),
     };
+    console.log("weightDetailsArray", requestBody.weightDetailsArray);
 
     setLoading(true); // Start loading
     try {
@@ -85,7 +92,7 @@ export default function Page() {
     } catch (err) {
       console.error("Network/API call failed:", err);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
@@ -101,6 +108,7 @@ export default function Page() {
     paymentMode,
     selectedTab,
     codAmount,
+    boxes,
   ]);
 
   return (
@@ -161,7 +169,7 @@ export default function Page() {
               <div>
                 <label className=" text-gray-700 font-medium mb-2 flex items-center justify-between">
                   <span>Package Type</span>
-                  {/* <button
+                  <button
                     type="button"
                     onClick={() => {
                       setShowAdvanced(true);
@@ -174,7 +182,7 @@ export default function Page() {
                     className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition"
                   >
                     + Advanced Package
-                  </button> */}
+                  </button>
                 </label>
                 <select
                   className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
@@ -191,14 +199,13 @@ export default function Page() {
                 {/* Weight input */}
                 <div className="flex flex-col">
                   <label className="text-gray-700 font-medium mb-2">
-                    Weight (gm)
+                    Weight (Kg)
                   </label>
                   <input
                     type="number"
                     value={weight}
-                    onChange={(e) => setWeight(Number(e.target.value))}
+                    onChange={(e) => setWeight(e.target.value)}
                     className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                    min={0}
                   />
                 </div>
 
@@ -212,25 +219,22 @@ export default function Page() {
                       type="number"
                       placeholder="L"
                       value={length}
-                      onChange={(e) => setLength(Number(e.target.value))}
+                      onChange={(e) => setLength(e.target.value)}
                       className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                      min={0}
                     />
                     <input
                       type="number"
                       placeholder="B"
                       value={width}
-                      onChange={(e) => setWidth(Number(e.target.value))}
+                      onChange={(e) => setWidth(e.target.value)}
                       className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                      min={0}
                     />
                     <input
                       type="number"
                       placeholder="H"
                       value={height}
-                      onChange={(e) => setHeight(Number(e.target.value))}
+                      onChange={(e) => setHeight(e.target.value)}
                       className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                      min={0}
                     />
                   </div>
                 </div>
