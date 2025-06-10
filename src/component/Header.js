@@ -301,7 +301,7 @@ export default function Header() {
             Track
           </Link>
           <Link
-            href="/support"
+            href="/contactus"
             className="block text-gray-700 hover:text-blue-600"
           >
             Contact us
