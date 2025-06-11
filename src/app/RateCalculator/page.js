@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { GiCalculator } from "react-icons/gi";
 import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Page() {
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -309,9 +310,7 @@ export default function Page() {
                               type="number"
                               placeholder="Enter amount"
                               value={codAmount}
-                              onChange={(e) =>
-                                setCodAmount(Number(e.target.value))
-                              }
+                              onChange={(e) => setCodAmount(e.target.value)}
                               className="w-full border border-indigo-300 rounded-xl pl-10 pr-4 py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
                             />
                           </div>
@@ -342,43 +341,44 @@ export default function Page() {
                         onChange={(e) =>
                           handleBoxChange(index, "noOfBoxes", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       />
+
                       <input
                         type="number"
-                        placeholder="Weight"
+                        placeholder="Wt (cm)"
                         value={box.Weightperbox}
                         onChange={(e) =>
                           handleBoxChange(index, "Weightperbox", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       />
                       <input
                         type="number"
-                        placeholder="Length"
+                        placeholder="L (cm)"
                         value={box.length}
                         onChange={(e) =>
                           handleBoxChange(index, "length", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       />
                       <input
                         type="number"
-                        placeholder="Width"
+                        placeholder="W (cm)"
                         value={box.width}
                         onChange={(e) =>
                           handleBoxChange(index, "width", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       />
                       <input
                         type="number"
-                        placeholder="Height"
+                        placeholder="H (cm)"
                         value={box.height}
                         onChange={(e) =>
                           handleBoxChange(index, "height", e.target.value)
                         }
-                        className="border px-4 py-2 rounded text-xs placeholder:text-sm"
+                        className="border px-4 py-2 rounded text-xs placeholder:text-sm appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       />
                     </div>
 
@@ -459,10 +459,24 @@ export default function Page() {
                                     </span>
                                   </p>
                                 </h2>
-                                <div className="text-right">
-                                  <p className="text-4xl font-extrabold text-blue-900 drop-shadow-md">
+                                <div className="text-right space-y-2 sm:space-y-3">
+                                  <p className="text-3xl sm:text-4xl font-extrabold text-blue-900 drop-shadow-md">
                                     ₹{rates[type]?.total ?? "--"}
                                   </p>
+
+                                  <a
+                                    href={`https://wa.me/917905955584?text=${encodeURIComponent(
+                                      `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
+                                        rates[type]?.total ?? "--"
+                                      }`
+                                    )}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 px-5 py-3 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-200 shadow-md text-sm sm:text-base"
+                                  >
+                                    <FaWhatsapp className="text-lg sm:text-xl" />
+                                    Book on WhatsApp
+                                  </a>
                                 </div>
                               </div>
                             </>
