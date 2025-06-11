@@ -3,10 +3,24 @@ import { useState, useRef, useEffect } from "react";
 import { GiCalculator } from "react-icons/gi";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import { Switch } from "@headlessui/react";
 
 export default function Page() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [boxes, setBoxes] = useState([]);
+  const [selectedTab, setSelectedTab] = useState("Forward");
+  const [paymentMode, setPaymentMode] = useState("Prepaid");
+  const [packageType, setPackageType] = useState("Plastic cover/Flyer");
+  const [loading, setLoading] = useState(false);
+  const [pickupPincode, setPickupPincode] = useState("122001");
+  const [deliveryPincode, setDeliveryPincode] = useState("122001");
+  const [weight, setWeight] = useState(0.5);
+  const [length, setLength] = useState(1);
+  const [width, setWidth] = useState(1);
+  const [height, setHeight] = useState(1);
+  const [codAmount, setCodAmount] = useState(1000);
+  const [rates, setRates] = useState({ Surface: null, Air: null });
+  const [codError, setCodError] = useState("");
 
   const multipleBoxesRef = useRef(null);
 
@@ -28,24 +42,22 @@ export default function Page() {
     setBoxes(newBoxes);
   };
 
-  const [selectedTab, setSelectedTab] = useState("Forward");
-  const [paymentMode, setPaymentMode] = useState("Prepaid");
-  const [packageType, setPackageType] = useState("Plastic cover/Flyer");
-  const [loading, setLoading] = useState(false);
-  const [pickupPincode, setPickupPincode] = useState("122001");
-  const [deliveryPincode, setDeliveryPincode] = useState("122001");
-  const [weight, setWeight] = useState(0.5);
-  const [length, setLength] = useState(1);
-  const [width, setWidth] = useState(1);
-  const [height, setHeight] = useState(1);
-  const [codAmount, setCodAmount] = useState(1);
-  const [rates, setRates] = useState({ Surface: null, Air: null });
   const isValidPincode = (pin) => pin.length === 6 && /^\d{6}$/.test(pin);
   console.log("boxes.length", boxes.length);
 
   const fetchRates = async () => {
     if (!isValidPincode(pickupPincode) || !isValidPincode(deliveryPincode))
       return;
+    // Validate COD amount
+    if (paymentMode === "COD") {
+      const amount = Number(codAmount);
+      if (!amount || amount < 1) {
+        setCodError("Please enter a valid COD amount (minimum ₹1).");
+        return;
+      } else {
+        setCodError("");
+      }
+    }
 
     const requestBody = {
       originPincode: pickupPincode,
@@ -117,6 +129,7 @@ export default function Page() {
     width,
     height,
     boxes,
+    // showAdvanced,
   ]);
 
   return (
@@ -174,99 +187,110 @@ export default function Page() {
                 </div>
               </div>
 
-              <div>
-                <label className=" text-gray-700 font-medium mb-2 flex items-center justify-between">
-                  <span>Package Type</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowAdvanced(true);
-                      setBoxes([
-                        {
-                          noOfBoxes: "",
-                          Weightperbox: "",
-                          length: "",
-                          height: "",
-                          width: "",
-                        },
-                      ]);
-                      setTimeout(() => {
-                        multipleBoxesRef.current?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      }, 100);
-                    }}
-                    className="text-indigo-600 text-sm font-semibold underline hover:text-indigo-800 transition  cursor-pointer"
-                  >
-                    + Advanced Package
-                  </button>
-                </label>
-                <select
-                  className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                  value={packageType}
-                  onChange={(e) => setPackageType(e.target.value)}
-                >
-                  <option>Plastic cover/Flyer</option>
-                  <option>Box</option>
-                  <option>Envelope</option>
-                </select>
-              </div>
+              <div className="space-y-6">
+                {/* Package Type + Toggle */}
+                <div>
+                  <label className="text-gray-700 font-medium mb-2 flex items-center justify-between">
+                    <span>Package Type</span>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                {/* Weight input */}
-                <div className="flex flex-col">
-                  <label className="text-gray-700 font-medium mb-2">
-                    Weight (Kg)
+                    {/* Toggle */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-600">Basic</span>
+                      <Switch
+                        checked={!showAdvanced}
+                        onChange={(value) => {
+                          setShowAdvanced(!value);
+                          if (!value) {
+                            // Switching to Advanced
+                            setBoxes([
+                              {
+                                noOfBoxes: "",
+                                Weightperbox: "",
+                                length: "",
+                                height: "",
+                                width: "",
+                              },
+                            ]);
+                            setTimeout(() => {
+                              multipleBoxesRef.current?.scrollIntoView({
+                                behavior: "smooth",
+                              });
+                            }, 100);
+                          }
+                        }}
+                        className={`${
+                          !showAdvanced ? "bg-indigo-600" : "bg-gray-300"
+                        } relative inline-flex h-6 w-11 items-center rounded-full transition-colors`}
+                      >
+                        <span
+                          className={`${
+                            !showAdvanced ? "translate-x-6" : "translate-x-1"
+                          } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                        />
+                      </Switch>
+                      <span className="text-sm text-gray-600">Advanced</span>
+                    </div>
                   </label>
-                  <input
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
+
+                  <select
                     className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                  />
+                    value={packageType}
+                    onChange={(e) => setPackageType(e.target.value)}
+                  >
+                    <option>Plastic cover/Flyer</option>
+                    <option>Box</option>
+                    <option>Envelope</option>
+                  </select>
                 </div>
 
-                {/* Dimensions inputs */}
-                <div className="flex flex-col">
-                  <label className="text-gray-700 font-medium mb-2">
-                    Dimensions (L × B × H in cm)
-                  </label>
-                  <div className="flex gap-4">
-                    <input
-                      type="number"
-                      placeholder="L"
-                      value={length}
-                      onChange={(e) => setLength(e.target.value)}
-                      className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                    />
-                    <input
-                      type="number"
-                      placeholder="B"
-                      value={width}
-                      onChange={(e) => setWidth(e.target.value)}
-                      className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                    />
-                    <input
-                      type="number"
-                      placeholder="H"
-                      value={height}
-                      onChange={(e) => setHeight(e.target.value)}
-                      className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
-                    />
+                {/* Basic Fields (only if not in advanced mode) */}
+                {!showAdvanced && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-6">
+                    {/* Weight */}
+                    <div className="flex flex-col">
+                      <label className="text-gray-700 font-medium mb-2">
+                        Weight (Kg)
+                      </label>
+                      <input
+                        type="number"
+                        value={weight}
+                        onChange={(e) => setWeight(e.target.value)}
+                        className="w-full border border-indigo-300 rounded-xl px-5 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
+                      />
+                    </div>
+
+                    {/* Dimensions */}
+                    <div className="flex flex-col">
+                      <label className="text-gray-700 font-medium mb-2">
+                        Dimensions (L × B × H in cm)
+                      </label>
+                      <div className="flex gap-4">
+                        <input
+                          type="number"
+                          placeholder="L"
+                          value={length}
+                          onChange={(e) => setLength(e.target.value)}
+                          className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
+                        />
+                        <input
+                          type="number"
+                          placeholder="B"
+                          value={width}
+                          onChange={(e) => setWidth(e.target.value)}
+                          className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
+                        />
+                        <input
+                          type="number"
+                          placeholder="H"
+                          value={height}
+                          onChange={(e) => setHeight(e.target.value)}
+                          className="w-1/3 border border-indigo-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
-
-              {/* <div className="bg-indigo-100 border-l-8 border-indigo-400 p-5 rounded-xl text-indigo-800 text-sm font-semibold select-none shadow-inner">
-                <p>
-                  <span className="font-bold">
-                    Volumetric Weight Calculation:
-                  </span>
-                  <br />
-                  Surface = (L × B × H) / 5000 <br />
-                  Air = (L × B × H) / 4000
-                </p>
-              </div> */}
 
               <div>
                 <label className="block text-gray-700 font-semibold mb-4">
@@ -346,7 +370,7 @@ export default function Page() {
 
                       <input
                         type="number"
-                        placeholder="Wt (cm)"
+                        placeholder="Wt (Kg)"
                         value={box.Weightperbox}
                         onChange={(e) =>
                           handleBoxChange(index, "Weightperbox", e.target.value)
@@ -465,9 +489,21 @@ export default function Page() {
                                   </p>
 
                                   <a
-                                    href={`https://wa.me/917905955584?text=${encodeURIComponent(
+                                    href={`https://wa.me/918874262636?text=${encodeURIComponent(
                                       `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
                                         rates[type]?.total ?? "--"
+                                      }\nEstimated Delivery: ${
+                                        type === "Surface"
+                                          ? `${rates["SurfaceTat"]} ${
+                                              rates["SurfaceTat"] === 1
+                                                ? "Day"
+                                                : "Days"
+                                            } (Surface)`
+                                          : `${rates["AirTat"]} ${
+                                              rates["AirTat"] === 1
+                                                ? "Day"
+                                                : "Days"
+                                            } (Air)`
                                       }`
                                     )}`}
                                     target="_blank"
@@ -506,6 +542,12 @@ export default function Page() {
                     )}
                   </div>
                 ))}
+                {/* Show COD error below cards */}
+                {codError && (
+                  <div className="text-red-500 font-semibold text-sm mt-4">
+                    {codError}
+                  </div>
+                )}
               </div>
             ) : (
               <div className="text-red-500 font-semibold mt-5">
