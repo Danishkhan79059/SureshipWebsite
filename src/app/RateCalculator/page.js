@@ -195,7 +195,7 @@ export default function Page() {
 
                     {/* Toggle */}
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-600">Basic</span>
+                      <span className="text-sm text-gray-600">Advanced</span>
                       <Switch
                         checked={!showAdvanced}
                         onChange={(value) => {
@@ -228,7 +228,7 @@ export default function Page() {
                           } inline-block h-4 w-4 transform rounded-full bg-white transition`}
                         />
                       </Switch>
-                      <span className="text-sm text-gray-600">Advanced</span>
+                      <span className="text-sm text-gray-600">Basic</span>
                     </div>
                   </label>
 
@@ -432,121 +432,122 @@ export default function Page() {
 
           {pickupPincode && deliveryPincode ? (
             /^\d{6}$/.test(pickupPincode) && /^\d{6}$/.test(deliveryPincode) ? (
-              <div className="space-y-10 mt-10">
-                {["Surface", "Air"].map((type) => (
-                  <div
-                    key={type}
-                    className="bg-white rounded-md p-4 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
-                  >
-                    {loading ? (
-                      <div className="flex justify-center items-center space-x-2">
-                        <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                        <span className="text-blue-700 font-semibold">
-                          Loading...
-                        </span>
-                      </div>
-                    ) : (
-                      <>
-                        <div className="flex flex-col justify-between items-center w-full">
-                          {(type === "Surface" || type === "Air") && (
-                            <>
-                              <div className="flex items-center justify-start w-full">
-                                <img
-                                  src="/image/e (81).jpg"
-                                  alt="company logo"
-                                  className="h-6 w-auto"
-                                />
-                              </div>
-                              {/* Changed to flex-col and items-center */}
-                              <div className="flex items-start justify-between w-full">
-                                {/* Removed mt-2 here */}
-                                <h2 className="text-xl  text-blue-900">
-                                  {type}
-                                  <p className="text-indigo-400 font-semibold tracking-wide mt-1 flex items-center gap-1">
-                                    Delivered in{" "}
-                                    <span className="flex items-center gap-1">
-                                      {type === "Surface" ? (
-                                        <span>
-                                          {rates["SurfaceTat"]}
-                                          {rates["SurfaceTat"] === 1
-                                            ? " Day"
-                                            : " Days"}
-                                        </span>
-                                      ) : (
-                                        <span>
-                                          {rates["AirTat"]}{" "}
-                                          {rates["AirTat"] === 1
-                                            ? " Day"
-                                            : " Days"}
-                                        </span>
-                                      )}
-                                    </span>
-                                  </p>
-                                </h2>
-                                <div className="text-right space-y-2 sm:space-y-3">
-                                  <p className="text-3xl sm:text-4xl font-extrabold text-blue-900 drop-shadow-md">
-                                    ₹{rates[type]?.total ?? "--"}
-                                  </p>
-
-                                  <a
-                                    href={`https://wa.me/918874262636?text=${encodeURIComponent(
-                                      `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
-                                        rates[type]?.total ?? "--"
-                                      }\nEstimated Delivery: ${
-                                        type === "Surface"
-                                          ? `${rates["SurfaceTat"]} ${
-                                              rates["SurfaceTat"] === 1
-                                                ? "Day"
-                                                : "Days"
-                                            } (Surface)`
-                                          : `${rates["AirTat"]} ${
-                                              rates["AirTat"] === 1
-                                                ? "Day"
-                                                : "Days"
-                                            } (Air)`
-                                      }`
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 px-5 py-3 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-200 shadow-md text-sm sm:text-base"
-                                  >
-                                    <FaWhatsapp className="text-lg sm:text-xl" />
-                                    Book on WhatsApp
-                                  </a>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                        </div>
-
-                        {rates[type] && (
-                          <div className="mt-4 text-sm text-gray-700">
-                            <p>
-                              {[
-                                !rates[type].rtoCharge &&
-                                  rates[type].codCharge > 0 &&
-                                  `COD Charge: ₹${rates[type].codCharge}`,
-                                rates[type].rtoCharge > 0 &&
-                                  `RTO Charge: ₹${rates[type].rtoCharge}`,
-                                rates[type].tsAmount > 0 &&
-                                  `Shipping cost: ₹${rates[type].tsAmount}`,
-                                rates[type].additionalGst > 0 &&
-                                  `GST: ₹${rates[type].additionalGst}`,
-                              ]
-                                .filter(Boolean)
-                                .join(" + ")}
-                            </p>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                ))}
+              <div className="space-y-10 mt-5">
                 {/* Show COD error below cards */}
-                {codError && (
-                  <div className="text-red-500 font-semibold text-sm mt-4">
+                {codError ? (
+                  <div className="text-red-500 font-semibold text-sm">
                     {codError}
                   </div>
+                ) : (
+                  ["Surface", "Air"].map((type) => (
+                    <div
+                      key={type}
+                      className="bg-white rounded-md p-4 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
+                    >
+                      {loading ? (
+                        <div className="flex justify-center items-center space-x-2">
+                          <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                          <span className="text-blue-700 font-semibold">
+                            Loading...
+                          </span>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="flex flex-col justify-between items-center w-full">
+                            {(type === "Surface" || type === "Air") && (
+                              <>
+                                <div className="flex items-center justify-start w-full">
+                                  <img
+                                    src="/image/e (81).jpg"
+                                    alt="company logo"
+                                    className="h-6 w-auto"
+                                  />
+                                </div>
+                                {/* Changed to flex-col and items-center */}
+                                <div className="flex items-start justify-between w-full">
+                                  {/* Removed mt-2 here */}
+                                  <h2 className="text-xl  text-blue-900">
+                                    {type}
+                                    <p className="text-indigo-400 font-semibold tracking-wide mt-1 flex items-center gap-1">
+                                      Delivered in{" "}
+                                      <span className="flex items-center gap-1">
+                                        {type === "Surface" ? (
+                                          <span>
+                                            {rates["SurfaceTat"]}
+                                            {rates["SurfaceTat"] === 1
+                                              ? " Day"
+                                              : " Days"}
+                                          </span>
+                                        ) : (
+                                          <span>
+                                            {rates["AirTat"]}{" "}
+                                            {rates["AirTat"] === 1
+                                              ? " Day"
+                                              : " Days"}
+                                          </span>
+                                        )}
+                                      </span>
+                                    </p>
+                                  </h2>
+                                  <div className="text-right space-y-2 sm:space-y-3">
+                                    <p className="text-3xl sm:text-4xl font-extrabold text-blue-900 drop-shadow-md">
+                                      ₹{rates[type]?.total ?? "--"}
+                                    </p>
+
+                                    <a
+                                      href={`https://wa.me/918874262636?text=${encodeURIComponent(
+                                        `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
+                                          rates[type]?.total ?? "--"
+                                        }\nEstimated Delivery: ${
+                                          type === "Surface"
+                                            ? `${rates["SurfaceTat"]} ${
+                                                rates["SurfaceTat"] === 1
+                                                  ? "Day"
+                                                  : "Days"
+                                              } (Surface)`
+                                            : `${rates["AirTat"]} ${
+                                                rates["AirTat"] === 1
+                                                  ? "Day"
+                                                  : "Days"
+                                              } (Air)`
+                                        }`
+                                      )}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 px-5 py-3 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-200 shadow-md text-sm sm:text-base"
+                                    >
+                                      <FaWhatsapp className="text-lg sm:text-xl" />
+                                      Book on WhatsApp
+                                    </a>
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </div>
+
+                          {rates[type] && (
+                            <div className="mt-4 text-sm text-gray-700">
+                              <p>
+                                {[
+                                  !rates[type].rtoCharge &&
+                                    rates[type].codCharge > 0 &&
+                                    `COD Charge: ₹${rates[type].codCharge}`,
+                                  rates[type].rtoCharge > 0 &&
+                                    `RTO Charge: ₹${rates[type].rtoCharge}`,
+                                  rates[type].tsAmount > 0 &&
+                                    `Shipping cost: ₹${rates[type].tsAmount}`,
+                                  rates[type].additionalGst > 0 &&
+                                    `GST: ₹${rates[type].additionalGst}`,
+                                ]
+                                  .filter(Boolean)
+                                  .join(" + ")}
+                              </p>
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  ))
                 )}
               </div>
             ) : (
