@@ -195,7 +195,7 @@ export default function Page() {
 
                     {/* Toggle */}
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-600">Basic</span>
+                      {/* <span className="text-sm text-gray-600">Basic</span> */}
                       <Switch
                         checked={!showAdvanced}
                         onChange={(value) => {
@@ -228,7 +228,7 @@ export default function Page() {
                           } inline-block h-4 w-4 transform rounded-full bg-white transition`}
                         />
                       </Switch>
-                      <span className="text-sm text-gray-600">Advanced</span>
+                      {/* <span className="text-sm text-gray-600">Advanced</span> */}
                     </div>
                   </label>
 
