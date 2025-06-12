@@ -458,7 +458,7 @@ export default function Page() {
                               <>
                                 <div className="flex items-center justify-start w-full">
                                   <img
-                                    src="/image/e (81).jpg"
+                                    src="/image/photoses.jpg"
                                     alt="company logo"
                                     className="h-6 w-auto"
                                   />

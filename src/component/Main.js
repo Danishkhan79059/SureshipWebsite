@@ -74,6 +74,8 @@ const features = [
   },
 ];
 
+
+
 export default function Main() {
   // const router = useRouter();
   const items = [
@@ -561,6 +563,7 @@ export default function Main() {
           {/* </div> */}
         </div>
       </div>
+    
 
       <div className="bg-white py-12 px-4 sm:px-6 lg:px-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 text-black">

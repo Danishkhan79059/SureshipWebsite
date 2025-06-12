@@ -20,7 +20,7 @@ export default function Header() {
   const [opens, setopens] = useState(false);
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <nav className="bg-blue-100 shadow-lg fixed w-full z-50">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -50,7 +50,7 @@ export default function Header() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <span className="text-gray-700 hover:text-blue-600  flex items-center  py-2 hover:bg-white rounded-md text-sm font-semibold cursor-pointer">
+              <span className="text-gray-700 hover:text-blue-600  flex items-center py-2 rounded-md text-sm font-semibold cursor-pointer">
                 Services
               </span>
 

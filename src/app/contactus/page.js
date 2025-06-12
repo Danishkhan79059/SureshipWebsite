@@ -4,6 +4,36 @@ import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 import { FaHeadset, FaVideo, FaQuestionCircle } from "react-icons/fa";
 
+import {
+  FaTruckLoading,
+  FaRupeeSign,
+  FaFileInvoice,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
+const features = [
+  {
+    icon: <FaTruckLoading size={40} />,
+    title: "Fast Pickup & Delivery",
+    description: "Pickup within 20 minutes, 30-45 min delivery",
+  },
+  {
+    icon: <FaRupeeSign size={40} />,
+    title: "Affordable Logistics",
+    description: "Starting from just ₹13/km for intra-city shipping",
+  },
+  {
+    icon: <FaFileInvoice size={40} />,
+    title: "No GST Required",
+    description: "Start shipping without GST registration",
+  },
+  {
+    icon: <FaMapMarkerAlt size={40} />,
+    title: "Real-Time Tracking",
+    description: "Track every shipment live with full support",
+  },
+];
+
 const contactData = [
   {
     title: "Customer Support",
@@ -171,7 +201,38 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="min-h-96 flex flex-wrap justify-center items-center gap-6 px-4 py-10 bg-white">
+      <section className="py-12 px-4 md:px-20 bg-blue-50">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+          <span className="border-l-4 border-yellow-400 pl-2">
+            Why Choose Sureship?
+          </span>
+        </h2>
+        <p className="text-gray-600 mb-10 max-w-3xl">
+          Sureship provides on-demand logistics within the city, helping D2C
+          brands and local businesses ship products faster and more efficiently.
+          Our reliable 30-45 minute delivery ensures your packages reach
+          customers on time, every time.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="border rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition"
+            >
+              <div className="text-indigo-800 mb-4">{feature.icon}</div>
+              <h3 className="font-semibold text-lg text-gray-800">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="min-h-96 flex flex-wrap justify-center items-center gap-6 px-4 py-10 bg-blue-50">
         {contactDataa.map((item, index) => (
           <div
             key={index}
