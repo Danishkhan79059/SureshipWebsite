@@ -291,6 +291,14 @@ export default function Header() {
                     Careers
                   </a>
                 </li>
+                 <li>
+                  <a
+                    href="/Explore"
+                    className="block px-2 py-1 hover:text-blue-600"
+                  >
+                    Exlore us
+                  </a>
+                </li>
               </ul>
             )}
           </div>
