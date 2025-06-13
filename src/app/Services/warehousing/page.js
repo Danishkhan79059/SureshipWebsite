@@ -252,7 +252,7 @@ export default function page() {
 
             <button
               onClick={() => (window.location.href = "/support")}
-              className="bg-blue-900 text-white px-6 py-2 text-sm rounded hover:bg-blue-800 transition"
+              className="bg-blue-900 text-white px-6 py-2 text-sm rounded hover:bg-blue-800 transition cursor-pointer"
             >
               Contact Us <span className="ml-2">→</span>
             </button>

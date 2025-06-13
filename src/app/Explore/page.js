@@ -437,9 +437,14 @@ export default function Page() {
                 </li>
               </ul>
             </div>
-            <button className="mt-8 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg w-full hover:bg-blue-700">
+            <a
+              href="https://app.sureship.in/coming_soon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg w-full text-center inline-block hover:bg-blue-700"
+            >
               Start with Shipway Logistics
-            </button>
+            </a>
           </div>
         </div>
       </section>

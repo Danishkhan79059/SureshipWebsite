@@ -291,7 +291,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="bg-blue-900 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded mb-6">
+              <button className="bg-blue-900 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded mb-6 cursor-pointer">
                 Learn more
               </button>
             </a>
@@ -373,7 +373,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="bg-blue-900 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded mb-6">
+              <button className="bg-blue-900 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded mb-6 cursor-pointer">
                 Learn more
               </button>
             </a>

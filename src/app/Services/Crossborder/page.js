@@ -82,7 +82,10 @@ export default function page() {
           <p className="mt-4 text-sm md:text-base text-white">
             Experience customised, multi-modal solutions for global shipping
           </p>
-          <button   onClick={() => (window.location.href = "/track")} className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded  transition-all cursor-pointer">
+          <button
+            onClick={() => (window.location.href = "/track")}
+            className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded  transition-all cursor-pointer"
+          >
             Express parcel
           </button>
         </div>
@@ -232,10 +235,10 @@ export default function page() {
           </h2>
           <p className="text-lg mb-6">for your business today</p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <button className="bg-white text-blue-900 px-6 py-2 rounded font-medium hover:bg-blue-100 transition-all">
+            <button className="bg-white text-blue-900 px-6 py-2 rounded font-medium hover:bg-blue-100 transition-all cursor-pointer">
               Freight <span className="ml-2">→</span>
             </button>
-            <button className="bg-white text-blue-900 px-6 py-2 rounded font-medium hover:bg-blue-100 transition-all">
+            <button className="bg-white text-blue-900 px-6 py-2 rounded font-medium hover:bg-blue-100 transition-all cursor-pointer">
               Express Parcel <span className="ml-2">→</span>
             </button>
           </div>

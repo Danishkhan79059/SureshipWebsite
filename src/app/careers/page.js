@@ -240,7 +240,7 @@ export default function page() {
           </h2>
           <button
             onClick={() => (window.location.href = "/")}
-            className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-full shadow-md transition-all duration-300"
+            className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-full shadow-md transition-all duration-300 cursor-pointer"
           >
             Explore Careers
           </button>
