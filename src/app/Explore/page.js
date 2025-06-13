@@ -420,7 +420,7 @@ export default function Page() {
               </div>
               <ul className="space-y-4 text-sm md:text-base">
                 <li>
-                  Partner with India’s leading courier providers for reliable
+                  Partner with India’s leading courier provider for reliable
                   delivery.
                 </li>
                 <li>
