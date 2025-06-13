@@ -410,7 +410,7 @@ export default function Page() {
             <div>
               <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
                 <img
-                  src="https://sureship.in/assets/img/Sureship.png"
+                  src="/image/e (4) (1).png"
                   alt="Shipway"
                   className="h-6 md:h-8"
                 />

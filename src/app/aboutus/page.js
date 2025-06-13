@@ -29,6 +29,40 @@ import React from "react";
 //   },
 // ];
 
+const images = [
+  "/image/ante1 (1).jpeg",
+  "/image/ante1 (2).jpeg",
+  "/image/ante1 (3).jpeg",
+  "/image/ante1 (4).jpeg",
+  "/image/ante1 (5).jpeg",
+  "/image/ante1 (6).jpeg",
+  "/image/ante1 (7).jpeg",
+  "/image/ante1 (8).jpeg",
+  "/image/ante1 (10).jpeg",
+  "/image/ante1 (11).jpeg",
+  "/image/ante1 (12).jpeg",
+  "/image/ante1 (13).jpeg",
+  "/image/ante1 (14).jpeg",
+  "/image/ante1 (15).jpeg",
+  "/image/ante1 (16).jpeg",
+  "/image/ante1 (17).jpeg",
+  "/image/ante1 (18).jpeg",
+  "/image/ante1 (19).jpeg",
+  "/image/ante1 (20).jpeg",
+  "/image/ante1 (21).jpeg",
+  "/image/ante1 (22).jpeg",
+  "/image/ante1 (23).jpeg",
+  "/image/ante1 (24).jpeg",
+  "/image/ante1 (25).jpeg",
+  "/image/ante1 (26).jpeg",
+  "/image/ante1 (27).jpeg",
+  "/image/ante1 (28).jpeg",
+  "/image/ante1 (29).jpeg",
+  "/image/ante1 (30).jpeg",
+  "/image/ante1 (31).jpeg",
+  "/image/ante1 (32).jpeg",
+  "/image/ante1 (33).jpeg",
+];
 const leader = [
   {
     name: "Parag Aggarwal",
@@ -38,7 +72,7 @@ const leader = [
   {
     name: "Danish khan",
     title: "Frontend Developer",
-    image: "/image/danish.png",
+    image: "/image/Danish.png",
   },
   {
     name: "Manav panwar",
@@ -566,6 +600,36 @@ export default function Page() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 md:px-12 w-full mx-auto bg-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
+          Our Culture
+        </h2>
+        <p className="text-center text-gray-600 mb-10 max-w-4xl mx-auto">
+          Sureship builds a culture of belonging to promote success and
+          achievement for its employees. As an organization, we put a strong
+          emphasis on our employees’ innovation and freedom to endorse their
+          skills. We create a positive culture to ensure employees are
+          comfortable collaborating and feel valued irrespective of their level
+          in the company.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {images.map((src, index) => (
+            <div
+              key={index}
+              className="w-full aspect-square relative overflow-hidden rounded-lg group"
+            >
+              <Image
+                src={src}
+                alt={`Culture ${index + 1}`}
+                fill
+                className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out"
+                // object-cover hover:scale-105 transition-transform duration-300 ease-in-out
+              />
+            </div>
+          ))}
         </div>
       </section>
 

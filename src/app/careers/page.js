@@ -1,6 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { PiHandshakeFill } from "react-icons/pi";
+import { FaDatabase } from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
+import { MdAutorenew } from "react-icons/md";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const benefits = [
   {
@@ -50,6 +55,45 @@ const benefits = [
     title: "Smart Logistics Dashboard",
     description:
       "Track deliveries, manage operations, and receive payouts with our ERP-enabled platform.",
+  },
+];
+const features = [
+  {
+    title: "Manpower",
+    description:
+      "Sureship manages all your logistics manpower needs by hiring and training professionals for smooth order handling and operational efficiency.",
+    icon: "/image/83 (1).png",
+  },
+  {
+    title: "Warehouse",
+    description:
+      "Your inventory is stored securely in Sureship’s modern warehouses that ensure minimal transit damage and optimized order dispatch.",
+    icon: "/image/84 (1).png",
+  },
+  {
+    title: "Last-Mile",
+    description:
+      "With warehouses located near your customer base, Sureship ensures faster deliveries and significantly reduced logistics costs.",
+    icon: "/image/85 (1).png",
+  },
+];
+
+const syncedBenefits = [
+  {
+    title: "Centralized Logistics Data",
+    icon: <FaDatabase className="text-2xl text-blue-600" />,
+  },
+  {
+    title: "Full Supply Chain Visibility",
+    icon: <AiOutlineEye className="text-2xl text-green-600" />,
+  },
+  {
+    title: "Automated Tracking & Updates",
+    icon: <MdAutorenew className="text-2xl text-purple-600" />,
+  },
+  {
+    title: "99.9% SLA Compliance",
+    icon: <FaRegCheckCircle className="text-2xl text-yellow-500" />,
   },
 ];
 
@@ -309,6 +353,87 @@ export default function page() {
           </div>
         </div>
       </section>
+
+      <div className="px-4 py-10 md:px-20 bg-blue-50 text-center">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-black">
+          One-Stop Logistics Solution
+        </h2>
+        <p className="mb-8 text-gray-600 max-w-2xl mx-auto">
+          Through our partnership with Cloudact Pvt Ltd, Sureship delivers a
+          seamless and optimized logistics experience tailored to your business.
+        </p>
+        <div className="flex justify-center items-center gap-6 mb-10">
+          <Image
+            src="/image/SureshipLogo.png"
+            alt="Sureship"
+            width={140}
+            height={80}
+          />
+          <PiHandshakeFill size={30} className="text-gray-700" />
+          {/* Partnership Icon */}
+          <Image
+            src="/image/e (10) (1).png"
+            alt="Cloudact"
+            width={120}
+            height={40}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="flex items-center bg-white rounded-xl shadow-sm hover:shadow-md transition p-4"
+            >
+              <div className="flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mr-6">
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-gray-900 mb-1">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-600">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-black">
+          What Happens When It’s All Synced Together?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {syncedBenefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center"
+            >
+              <div className="flex items-center justify-center mb-4 h-12">
+                {benefit.icon && typeof benefit.icon === "string" ? (
+                  <Image
+                    src={benefit.icon}
+                    alt={benefit.title}
+                    width={80}
+                    height={80}
+                    className="mx-auto"
+                  />
+                ) : (
+                  <div className="text-4xl text-blue-600">{benefit.icon}</div>
+                )}
+              </div>
+
+              <p className="text-base font-semibold text-gray-800">
+                {benefit.title}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section className="bg-blue-50 min-h-96 flex items-center justify-center px-4 py-10">
         <div className="bg-blue-50 md:flex rounded-lg shadow-lg max-w-6xl w-full overflow-hidden">
