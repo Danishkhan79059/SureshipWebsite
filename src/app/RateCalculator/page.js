@@ -19,9 +19,22 @@ export default function Page() {
   const [width, setWidth] = useState(1);
   const [height, setHeight] = useState(1);
   const [codAmount, setCodAmount] = useState(1000);
-  const [rates, setRates] = useState({ Surface: null, Air: null });
+  const [rates, setRates] = useState([]);
   const [codError, setCodError] = useState("");
-
+  const lspArray = [
+    {
+      lspId: "delhivery",
+      lspImagePath: "/image/photoses.jpg",
+      alt: "Delhivery",
+    },
+    { lspId: "dtdc", lspImagePath: "/image/viz.png", alt: "DTDC" },
+    { lspId: "shipmozo", lspImagePath: "/image/photoses.jpg", alt: "Shipmozo" },
+    {
+      lspId: "shiprocket",
+      lspImagePath: "/image/photoses.jpg",
+      alt: "Shiprocket",
+    },
+  ];
   const multipleBoxesRef = useRef(null);
 
   const handleBoxChange = (index, field, value) => {
@@ -92,6 +105,7 @@ export default function Page() {
     try {
       const res = await fetch(
         "https://backend.sureship.in/publicRoutes/getRateOptions",
+        // "http://192.168.1.16:3500/publicRoutes/getRateOptions",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -100,14 +114,11 @@ export default function Page() {
       );
 
       const data = await res.json();
+      console.log(data.rateOptions);
+
       if (data) {
-        const [surfaceObject, airObject] = data.rateOptions;
-        setRates({
-          Surface: surfaceObject.rateSummary,
-          Air: airObject.rateSummary,
-          SurfaceTat: surfaceObject.tat,
-          AirTat: airObject.tat,
-        });
+        // const [surfaceObject, airObject] = data.rateOptions;
+        setRates(data.rateOptions);
       }
     } catch (err) {
       console.error("Network/API call failed:", err);
@@ -438,116 +449,86 @@ export default function Page() {
                   <div className="text-red-500 font-semibold text-sm">
                     {codError}
                   </div>
+                ) : loading ? (
+                  <div className="flex justify-center items-center space-x-2">
+                    <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-blue-700 font-semibold">
+                      Loading...
+                    </span>
+                  </div>
                 ) : (
-                  ["Surface", "Air"].map((type) => (
-                    <div
-                      key={type}
-                      className="bg-white rounded-md p-4 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
-                    >
-                      {loading ? (
-                        <div className="flex justify-center items-center space-x-2">
-                          <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                          <span className="text-blue-700 font-semibold">
-                            Loading...
-                          </span>
-                        </div>
-                      ) : (
-                        <>
-                          <div className="flex flex-col justify-between items-center w-full">
-                            {(type === "Surface" || type === "Air") && (
-                              <>
-                                <div className="flex items-center justify-start w-full">
-                                  <img
-                                    src="/image/photoses.jpg"
-                                    alt="company logo"
-                                    className="h-6 w-auto"
-                                  />
-                                </div>
-                                {/* Changed to flex-col and items-center */}
-                                <div className="flex items-start justify-between w-full">
-                                  {/* Removed mt-2 here */}
-                                  <h2 className="text-xl  text-blue-900">
-                                    {type}
-                                    <p className="text-indigo-400 font-semibold tracking-wide mt-1 flex items-center gap-1">
-                                      Delivered in{" "}
-                                      <span className="flex items-center gap-1">
-                                        {type === "Surface" ? (
-                                          <span>
-                                            {rates["SurfaceTat"]}
-                                            {rates["SurfaceTat"] === 1
-                                              ? " Day"
-                                              : " Days"}
-                                          </span>
-                                        ) : (
-                                          <span>
-                                            {rates["AirTat"]}{" "}
-                                            {rates["AirTat"] === 1
-                                              ? " Day"
-                                              : " Days"}
-                                          </span>
-                                        )}
-                                      </span>
-                                    </p>
-                                  </h2>
-                                  <div className="text-right space-y-2 sm:space-y-3">
-                                    <p className="text-3xl sm:text-4xl font-extrabold text-blue-900 drop-shadow-md">
-                                      ₹{rates[type]?.total ?? "--"}
-                                    </p>
-
-                                    <a
-                                      href={`https://wa.me/918874262636?text=${encodeURIComponent(
-                                        `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
-                                          rates[type]?.total ?? "--"
-                                        }\nEstimated Delivery: ${
-                                          type === "Surface"
-                                            ? `${rates["SurfaceTat"]} ${
-                                                rates["SurfaceTat"] === 1
-                                                  ? "Day"
-                                                  : "Days"
-                                              } (Surface)`
-                                            : `${rates["AirTat"]} ${
-                                                rates["AirTat"] === 1
-                                                  ? "Day"
-                                                  : "Days"
-                                              } (Air)`
-                                        }`
-                                      )}`}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 px-5 py-3 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-200 shadow-md text-sm sm:text-base"
-                                    >
-                                      <FaWhatsapp className="text-lg sm:text-xl" />
-                                      Book on WhatsApp
-                                    </a>
-                                  </div>
-                                </div>
-                              </>
-                            )}
+                  rates.map((rate, index) => {
+                    const lspObject = lspArray.find(
+                      (lsp) => lsp.lspId === rate.lspId
+                    );
+                    return (
+                      <div
+                        key={index}
+                        className="bg-white rounded-md p-4 shadow-lg border border-indigo-200 hover:shadow-2xl transition-shadow duration-500 cursor-pointer select-none"
+                      >
+                        <div className="flex flex-col justify-between items-center w-full">
+                          <div className="flex items-center justify-start w-full mb-2">
+                            <img
+                              src={lspObject?.lspImagePath}
+                              alt={lspObject.alt}
+                              className="h-6 w-auto"
+                            />
                           </div>
 
-                          {rates[type] && (
-                            <div className="mt-4 text-sm text-gray-700">
-                              <p>
-                                {[
-                                  !rates[type].rtoCharge &&
-                                    rates[type].codCharge > 0 &&
-                                    `COD Charge: ₹${rates[type].codCharge}`,
-                                  rates[type].rtoCharge > 0 &&
-                                    `RTO Charge: ₹${rates[type].rtoCharge}`,
-                                  rates[type].tsAmount > 0 &&
-                                    `Shipping cost: ₹${rates[type].tsAmount}`,
-                                  rates[type].additionalGst > 0 &&
-                                    `GST: ₹${rates[type].additionalGst}`,
-                                ]
-                                  .filter(Boolean)
-                                  .join(" + ")}
+                          <div className="flex items-start justify-between w-full">
+                            <div>
+                              <h2 className="text-xl text-blue-900 font-bold capitalize">
+                                {rate.service}
+                              </h2>
+                              <p className="text-indigo-400 font-semibold tracking-wide mt-1">
+                                Delivered in {rate.tat}{" "}
+                                {rate.tat === 1 ? "Day" : "Days"}
                               </p>
                             </div>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  ))
+
+                            <div className="text-right space-y-2 sm:space-y-3">
+                              <p className="text-3xl sm:text-4xl font-extrabold text-blue-900 drop-shadow-md">
+                                ₹{rate.rateSummary?.total}
+                              </p>
+
+                              <a
+                                href={`https://wa.me/918874262636?text=${encodeURIComponent(
+                                  `Hi, I am interested in shipping.\nPickup Pincode: ${pickupPincode}\nDelivery Pincode: ${deliveryPincode}\nWeight: ${weight} Kg\nDimensions: ${length} x ${width} x ${height} cm\nEstimated Price: ₹${
+                                    rate.rateSummary?.total
+                                  }\nEstimated Delivery: ${rate.tat} ${
+                                    rate.tat === 1 ? "Day" : "Days"
+                                  } (${rate.service})`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 px-5 py-3 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-200 shadow-md text-sm sm:text-base"
+                              >
+                                <FaWhatsapp className="text-lg sm:text-xl" />
+                                Book on WhatsApp
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-sm text-gray-700">
+                          <p>
+                            {[
+                              rate.rateSummary?.codCharge > 0 &&
+                                `COD Charge: ₹${rate.rateSummary?.codCharge}`,
+                              rate.rateSummary?.rtoCharge > 0 &&
+                                `RTO Charge: ₹${rate.rateSummary?.rtoCharge}`,
+                              rate.rateSummary?.tsAmount > 0 &&
+                                `Shipping cost: ₹${rate.rateSummary?.tsAmount}`,
+                              rate.rateSummary?.additionalGst > 0 &&
+                                `GST: ₹${rate.rateSummary?.additionalGst}`,
+                            ]
+                              .filter(Boolean)
+                              .join(" + ")}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })
                 )}
               </div>
             ) : (
