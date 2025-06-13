@@ -411,7 +411,7 @@ export default function Page() {
               <div className="border border-black rounded-xl py-4 px-6 flex items-center space-x-3 mb-6">
                 <img
                   src="/image/e (4) (1).png"
-                  alt="Shipway"
+                  alt="suership"
                   className="h-6 md:h-8"
                 />
                 <h3 className="font-semibold text-lg md:text-xl">

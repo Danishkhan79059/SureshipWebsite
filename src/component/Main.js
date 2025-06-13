@@ -181,7 +181,7 @@ export default function Main() {
             <div className="mt-10">
               <button
                 onClick={() => (window.location.href = "/track")}
-                className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-700 transition cursor-pointer"
               >
                 Start Shipping Now
               </button>
@@ -282,7 +282,7 @@ export default function Main() {
 
           <button
             onClick={() => (window.location.href = "/track")}
-            className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300"
+            className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer"
           >
             Explore More
           </button>
@@ -388,7 +388,7 @@ export default function Main() {
             </p>
             <button
               onClick={() => (window.location.href = "/track")}
-              className="bg-blue-600 text-white text-base sm:text-lg font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded shadow hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white text-base sm:text-lg font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded shadow hover:bg-blue-700 transition cursor-pointer"
             >
               Explore Integrations &gt;&gt;
             </button>

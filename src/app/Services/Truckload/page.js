@@ -100,7 +100,7 @@ export default function page() {
             </p>
             <div className="w-full max-w-sm">
               <Image
-                src="/image/danish.png"
+                src="/image/e (14).jpg"
                 alt="Warehouse"
                 className="rounded-xl object-cover"
                 width={700}

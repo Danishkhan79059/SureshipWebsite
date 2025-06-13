@@ -113,7 +113,7 @@ export default function page() {
           </p>
           <button
             onClick={() => (window.location.href = "/")}
-            className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all"
+            className="mt-6 px-6 py-3 bg-blue-900 text-white font-medium rounded hover:bg-gray-200 transition-all cursor-pointer"
           >
             Get started
           </button>
