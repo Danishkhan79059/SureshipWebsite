@@ -96,6 +96,7 @@ export default function Page() {
                 lengthCm: box.length,
                 breadthCm: box.width,
                 heightCm: box.height,
+                Quantitiy:box.noOfBoxes,
               };
             }),
     };
@@ -371,7 +372,7 @@ export default function Page() {
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-black">
                       <input
                         type="number"
-                        placeholder="Boxes"
+                        placeholder="Quantity"
                         value={box.noOfBoxes}
                         onChange={(e) =>
                           handleBoxChange(index, "noOfBoxes", e.target.value)
@@ -381,7 +382,7 @@ export default function Page() {
 
                       <input
                         type="number"
-                        placeholder="Wt (Kg)"
+                        placeholder="Wt/box(Kg)"
                         value={box.Weightperbox}
                         onChange={(e) =>
                           handleBoxChange(index, "Weightperbox", e.target.value)
@@ -390,7 +391,7 @@ export default function Page() {
                       />
                       <input
                         type="number"
-                        placeholder="L (cm)"
+                        placeholder="L(cm)"
                         value={box.length}
                         onChange={(e) =>
                           handleBoxChange(index, "length", e.target.value)
@@ -399,7 +400,7 @@ export default function Page() {
                       />
                       <input
                         type="number"
-                        placeholder="W (cm)"
+                        placeholder="W(cm)"
                         value={box.width}
                         onChange={(e) =>
                           handleBoxChange(index, "width", e.target.value)
@@ -408,7 +409,7 @@ export default function Page() {
                       />
                       <input
                         type="number"
-                        placeholder="H (cm)"
+                        placeholder="H(cm)"
                         value={box.height}
                         onChange={(e) =>
                           handleBoxChange(index, "height", e.target.value)
