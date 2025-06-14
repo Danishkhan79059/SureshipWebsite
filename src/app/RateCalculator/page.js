@@ -96,7 +96,7 @@ export default function Page() {
                 lengthCm: box.length,
                 breadthCm: box.width,
                 heightCm: box.height,
-                Quantitiy:box.noOfBoxes,
+                Quantity:box.noOfBoxes,
               };
             }),
     };
